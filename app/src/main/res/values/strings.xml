@@ -5,4 +5,8 @@
     <string name="location">Localización</string>
     <string name="importantdates">Fechas Importantes</string>
     <string name="assistant">Asistentes</string>
+
+    <string name="appwidget_text">Programa Manguca</string>
+    <string name="configure">Configuración</string>
+    <string name="add_widget">Añadir Widget</string>
 </resources>
