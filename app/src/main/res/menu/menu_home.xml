@@ -7,9 +7,33 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"
+        app:showAsAction="always"
+        />
+    <item
         android:id="@+id/menu_program"
         android:icon="@drawable/ic_schedule"
         android:title="@string/program"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/menu_assitant"
+        android:icon="@drawable/ic_assistants"
+        android:title="@string/assistant"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/menu_location"
+        android:icon="@drawable/ic_location"
+        android:title="@string/location"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/menu_importantdates"
+        android:icon="@drawable/ic_date"
+        android:title="@string/importantdates"
         app:showAsAction="always"
         />
 

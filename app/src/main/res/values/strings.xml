@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Manguca</string>
+    <string name="home">Inicio</string>
     <string name="program">Programa</string>
+    <string name="location">Localización</string>
+    <string name="importantdates">Fechas Importantes</string>
+    <string name="assistant">Asistentes</string>
 </resources>
