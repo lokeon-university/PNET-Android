@@ -1,9 +1,12 @@
 package es.manguca;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,14 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import es.manguca.Utils.LetterImageView;
+
 public class ProgramActivity extends AppCompatActivity {
     private ListView listView;
-
+    public static SharedPreferences sharedPreferences;
+    public static String SEL_DAY;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,95 +56,121 @@ public class ProgramActivity extends AppCompatActivity {
     }
 
     private void setupListView(){
+        String[] roles = getResources().getStringArray(R.array.roles);
 
-        String[] title = getResources().getStringArray(R.array.Main);
-        String[] description = getResources().getStringArray(R.array.Description);
+        WeekAdapter adapter = new WeekAdapter(this, R.layout.activity_program_single_item, roles);
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, title, description);
-        listView.setAdapter(simpleAdapter);
+        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
                     case 0: {
-                        //Intent intent = new Intent(ProgramActivity.this, WeekActivity.class);
-                        //startActivity(intent);
+                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
+                        sharedPreferences.edit().putString(SEL_DAY, "Monday").apply();
                         break;
                     }
                     case 1: {
+                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
+                        sharedPreferences.edit().putString(SEL_DAY, "Tuesday").apply();
                         break;
                     }
                     case 2: {
+                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
+                        sharedPreferences.edit().putString(SEL_DAY, "Wednesday").apply();
                         break;
                     }
                     case 3: {
+                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
+                        sharedPreferences.edit().putString(SEL_DAY, "Thursday").apply();
                         break;
                     }
+                    case 4: {
+                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
+                        sharedPreferences.edit().putString(SEL_DAY, "Friday").apply();
+                        break;
+                    }
+                    case 5: {
+                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
+                        sharedPreferences.edit().putString(SEL_DAY, "Saturday").apply();
+                        break;
+                    }
+                    default:break;
                 }
             }
         });
+
     }
 
+    public class WeekAdapter extends ArrayAdapter {
 
-    public class SimpleAdapter extends BaseAdapter {
-
-        private Context mContext;
+        private int resource;
         private LayoutInflater layoutInflater;
-        private TextView title, description;
-        private String[] titleArray;
-        private String[] descriptionArray;
-        private ImageView imageView;
+        private String[] roles = new String[]{};
 
-        public SimpleAdapter(Context context, String[] title, String[] description){
-            mContext = context;
-            titleArray = title;
-            descriptionArray = description;
-            layoutInflater = LayoutInflater.from(context);
-        }
-
-
-        @Override
-        public int getCount() {
-            return titleArray.length;
+        public WeekAdapter(Context context, int resource, String[] objects) {
+            super(context, resource, objects);
+            this.resource = resource;
+            this.roles = objects;
+            layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
         @Override
-        public Object getItem(int position) {
-            return titleArray[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            ViewHolder holder;
             if(convertView == null){
-                convertView = layoutInflater.inflate(R.layout.activity_program_single_item, null);
+                holder = new ViewHolder();
+                convertView = layoutInflater.inflate(resource, null);
+                holder.ivLogo = (LetterImageView)convertView.findViewById(R.id.ivLetter);
+                holder.tvMain = (TextView)convertView.findViewById(R.id.tvMain);
+                holder.tvDescription = (TextView)convertView.findViewById(R.id.tvDescription);
+                holder.tvRole = (TextView)convertView.findViewById(R.id.tvRole);
+
+                convertView.setTag(holder);
+            }else{
+                holder = (ViewHolder)convertView.getTag();
             }
 
-            title = (TextView)convertView.findViewById(R.id.tvMain);
-            description = (TextView)convertView.findViewById(R.id.tvDescription);
-            imageView = (ImageView)convertView.findViewById(R.id.ivMain);
+            holder.ivLogo.setOval(true);
+            holder.ivLogo.setLetter(roles[position].charAt(0));
+            holder.tvRole.setText(roles[position]);
+            System.out.println(roles[position]);
 
-            title.setText(titleArray[position]);
-            description.setText(descriptionArray[position]);
+            switch(roles[position]){
+                case "Taller":
+                    holder.ivLogo.setBackgroundColorLetter(0);
+                    break;
+                case "Seminario":
+                    holder.ivLogo.setBackgroundColorLetter(1);
+                    break;
+                case "Concierto":
+                    holder.ivLogo.setBackgroundColorLetter(2);
+                    break;
+                case "Actividad":
+                    holder.ivLogo.setBackgroundColorLetter(3);
+                    break;
+                case "Torneo":
+                    holder.ivLogo.setBackgroundColorLetter(4);
+                    break;
+                case "Concurso":
+                    holder.ivLogo.setBackgroundColorLetter(5);
+                    break;
 
-            if(titleArray[position].equalsIgnoreCase("Timetable")){
-                imageView.setImageResource(R.drawable.timetable);
-            }else if(titleArray[position].equalsIgnoreCase("Subjects")){
-                imageView.setImageResource(R.drawable.book);
-            }else if(titleArray[position].equalsIgnoreCase("Faculty")){
-                imageView.setImageResource(R.drawable.contact);
-            }else{
-                imageView.setImageResource(R.drawable.settings);
             }
 
             return convertView;
+        }
+
+        class ViewHolder{
+            private LetterImageView ivLogo;
+            private TextView tvMain;
+            private TextView tvRole;
+            private TextView tvDescription;
 
         }
     }
 
-}
+    }
+
+

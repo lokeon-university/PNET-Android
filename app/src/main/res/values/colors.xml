@@ -3,4 +3,13 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <string-array name="colors" translatable="false">
+        <item>#C70039</item>
+        <item>#8F0C3E</item>
+        <item>#581846</item>
+        <item>#533A71</item>
+        <item>#497583</item>
+        <item>#304D55</item>
+    </string-array>
 </resources>

@@ -51,6 +51,17 @@
         <item> Saturday </item>
     </string-array>
 
+    <string-array name="roles">
+        <item>Taller</item>
+        <item>Seminario</item>
+        <item>Concierto</item>
+        <item>Actividad</item>
+        <item>Concurso</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+
+    </string-array>
+
     <string-array name="Monday">
         <item>Mixed Signal Design</item>
         <item>Analog Wave Propogation</item>
