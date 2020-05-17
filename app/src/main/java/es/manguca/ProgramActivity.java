@@ -35,7 +35,6 @@ public class ProgramActivity extends AppCompatActivity {
         setupListView();
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
-        bottom_toolbar.inflateMenu(R.menu.navigation);
         setSupportActionBar(bottom_toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         bottom_toolbar.setTitle("");

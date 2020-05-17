@@ -16,7 +16,6 @@ public class ImportantDatesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_important_dates);
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
-        bottom_toolbar.inflateMenu(R.menu.navigation);
         setSupportActionBar(bottom_toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         bottom_toolbar.setTitle("");
