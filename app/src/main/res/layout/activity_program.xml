@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity">
+    tools:context=".ProgramActivity">
+
 
     <ListView
         android:layout_width="match_parent"
@@ -17,5 +18,22 @@
         android:dividerHeight="10dp"
         android:divider="@null">
     </ListView>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" >
+
+        <include
+            android:id="@+id/top_toolbar"
+            layout="@layout/top_toolbar"></include>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" >
+        <include
+            android:id="@+id/bottom_toolbar"
+            layout="@layout/toolbar_bottom"></include>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package es.manguca;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +14,17 @@ public class ImportantDatesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_important_dates);
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_home,menu);
-        return true;
+
+        Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
+        bottom_toolbar.inflateMenu(R.menu.navigation);
+        setSupportActionBar(bottom_toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        bottom_toolbar.setTitle("");
+        bottom_toolbar.setSubtitle("");
+
+        Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
+        setSupportActionBar(top_toolbar);
+        getSupportActionBar().setTitle("Fechas Importantes");
     }
 
     @Override
@@ -29,6 +36,23 @@ public class ImportantDatesActivity extends AppCompatActivity {
             case R.id.menu_program:
                 startActivity(new Intent(this, ProgramActivity.class));
                 return true;
+
+            case R.id.menu_assitant:
+                startActivity(new Intent(this, AssistantActivity.class));
+                return true;
+
+            case R.id.menu_home:
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
+
+            case R.id.menu_location:
+                startActivity(new Intent(this, LocationAcivity.class));
+                return true;
+
+            case R.id.menu_importantdates:
+                startActivity(new Intent(this, ImportantDatesActivity.class));
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

@@ -3,6 +3,7 @@ package es.manguca;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -33,12 +34,17 @@ public class ProgramActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.lvMain);
         setupListView();
 
-    }
+        Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
+        bottom_toolbar.inflateMenu(R.menu.navigation);
+        setSupportActionBar(bottom_toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        bottom_toolbar.setTitle("");
+        bottom_toolbar.setSubtitle("");
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_home,menu);
-        return true;
+        Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
+        setSupportActionBar(top_toolbar);
+        getSupportActionBar().setTitle("Programa");
+
     }
 
     @Override
@@ -50,6 +56,23 @@ public class ProgramActivity extends AppCompatActivity {
             case R.id.menu_program:
                 startActivity(new Intent(this, ProgramActivity.class));
                 return true;
+
+            case R.id.menu_assitant:
+                startActivity(new Intent(this, AssistantActivity.class));
+                return true;
+
+            case R.id.menu_home:
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
+
+            case R.id.menu_location:
+                startActivity(new Intent(this, LocationAcivity.class));
+                return true;
+
+            case R.id.menu_importantdates:
+                startActivity(new Intent(this, ImportantDatesActivity.class));
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);
