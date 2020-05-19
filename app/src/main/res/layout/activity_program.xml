@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ProgramActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/top_toolbar">
+        <include layout="@layout/top_toolbar"></include>
+    </LinearLayout>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,33 +21,28 @@
     tools:context=".ProgramActivity">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/lvMain"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:dividerHeight="10dp"
-        android:divider="@null">
+        android:id="@+id/lvMain"
+        >
     </ListView>
 
-    <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" >
+</LinearLayout>
 
-        <include
-            android:id="@+id/top_toolbar"
-            layout="@layout/top_toolbar"></include>
-    </LinearLayout>
 
     <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" >
-        <include
-            android:id="@+id/bottom_toolbar"
-            layout="@layout/toolbar_bottom"></include>
+        android:id="@+id/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/toolbar_bottom"></include>
     </LinearLayout>
+
 
 </RelativeLayout>
+</LinearLayout>
