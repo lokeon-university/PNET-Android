@@ -65,7 +65,7 @@ public class ProgramActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menu_location:
-                startActivity(new Intent(this, LocationAcivity.class));
+                startActivity(new Intent(this, LocationActivity.class));
                 return true;
 
             case R.id.menu_importantdates:
@@ -78,9 +78,9 @@ public class ProgramActivity extends AppCompatActivity {
     }
 
     private void setupListView(){
-        String[] roles = getResources().getStringArray(R.array.roles);
 
-        WeekAdapter adapter = new WeekAdapter(this, R.layout.activity_program_single_item, roles);
+
+        WeekAdapter adapter = new WeekAdapter(this, R.layout.activity_program_single_item);
 
         listView.setAdapter(adapter);
 
@@ -129,17 +129,19 @@ public class ProgramActivity extends AppCompatActivity {
 
         private int resource;
         private LayoutInflater layoutInflater;
-        private String[] roles = new String[]{};
 
-        public WeekAdapter(Context context, int resource, String[] objects) {
-            super(context, resource, objects);
+        public WeekAdapter(Context context, int resource) {
+            super(context, resource);
             this.resource = resource;
-            this.roles = objects;
             layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            String[] roles = getResources().getStringArray(R.array.roles);
+            String[] description = getResources().getStringArray(R.array.Description);
+            String[] titles = getResources().getStringArray(R.array.Main);
+
             ViewHolder holder;
             if(convertView == null){
                 holder = new ViewHolder();
@@ -154,12 +156,27 @@ public class ProgramActivity extends AppCompatActivity {
                 holder = (ViewHolder)convertView.getTag();
             }
 
+            holder.tvDescription.setText(description[position]);
+            holder.tvMain.setText(titles[position]);
             holder.ivLogo.setOval(true);
             holder.ivLogo.setLetter(roles[position].charAt(0));
             holder.tvRole.setText(roles[position]);
-            System.out.println(roles[position]);
+            roleValue(roles[position], holder);
 
-            switch(roles[position]){
+
+            return convertView;
+        }
+
+        class ViewHolder{
+            private LetterImageView ivLogo;
+            private TextView tvMain;
+            private TextView tvRole;
+            private TextView tvDescription;
+
+        }
+
+        void roleValue(String role, ViewHolder holder){
+            switch(role){
                 case "Taller":
                     holder.ivLogo.setBackgroundColorLetter(0);
                     break;
@@ -180,18 +197,9 @@ public class ProgramActivity extends AppCompatActivity {
                     break;
 
             }
-
-            return convertView;
-        }
-
-        class ViewHolder{
-            private LetterImageView ivLogo;
-            private TextView tvMain;
-            private TextView tvRole;
-            private TextView tvDescription;
-
         }
     }
+
 
     }
 
