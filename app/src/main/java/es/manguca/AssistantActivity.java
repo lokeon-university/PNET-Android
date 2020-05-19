@@ -46,7 +46,7 @@ public class AssistantActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menu_location:
-                startActivity(new Intent(this, LocationAcivity.class));
+                startActivity(new Intent(this, LocationActivity.class));
                 return true;
 
             case R.id.menu_importantdates:

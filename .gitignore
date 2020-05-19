@@ -132,4 +132,10 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
+
+##MIO
+
+google_maps_api*
+
 # End of https://www.gitignore.io/api/androidstudio
+
