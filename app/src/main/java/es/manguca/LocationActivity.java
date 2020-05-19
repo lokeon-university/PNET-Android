@@ -76,10 +76,9 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng manguca = new LatLng(36.5285651, -6.2110946);
+        mMap.addMarker(new MarkerOptions().position(manguca).title("Manguca festival"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(manguca,18));
     }
 
 }
