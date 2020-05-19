@@ -80,7 +80,7 @@ public class ProgramActivity extends AppCompatActivity {
     private void setupListView(){
 
 
-        WeekAdapter adapter = new WeekAdapter(this, R.layout.activity_program_single_item);
+        SimpleAdapter adapter = new SimpleAdapter(this);
 
         listView.setAdapter(adapter);
 
@@ -125,82 +125,88 @@ public class ProgramActivity extends AppCompatActivity {
 
     }
 
-    public class WeekAdapter extends ArrayAdapter {
-
-        private int resource;
+    public class SimpleAdapter extends BaseAdapter{
+        private LetterImageView ivLogo;
+        private Context mContext;
         private LayoutInflater layoutInflater;
+        private TextView title, description, role;
+        private String[] sRoles = getResources().getStringArray(R.array.roles);
+        private String[] sDescription = getResources().getStringArray(R.array.Description);
+        private String[] sTitles = getResources().getStringArray(R.array.Main);
 
-        public WeekAdapter(Context context, int resource) {
-            super(context, resource);
-            this.resource = resource;
-            layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        public SimpleAdapter(Context context){
+            mContext = context;
+            layoutInflater = LayoutInflater.from(context);
+        }
+
+
+        @Override
+        public int getCount() {
+            return sTitles.length;
         }
 
         @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            String[] roles = getResources().getStringArray(R.array.roles);
-            String[] description = getResources().getStringArray(R.array.Description);
-            String[] titles = getResources().getStringArray(R.array.Main);
+        public Object getItem(int position) {
+            return sTitles[position];
+        }
 
-            ViewHolder holder;
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
             if(convertView == null){
-                holder = new ViewHolder();
-                convertView = layoutInflater.inflate(resource, null);
-                holder.ivLogo = (LetterImageView)convertView.findViewById(R.id.ivLetter);
-                holder.tvMain = (TextView)convertView.findViewById(R.id.tvMain);
-                holder.tvDescription = (TextView)convertView.findViewById(R.id.tvDescription);
-                holder.tvRole = (TextView)convertView.findViewById(R.id.tvRole);
-
-                convertView.setTag(holder);
-            }else{
-                holder = (ViewHolder)convertView.getTag();
+                convertView = layoutInflater.inflate(R.layout.activity_program_single_item, null);
             }
 
-            holder.tvDescription.setText(description[position]);
-            holder.tvMain.setText(titles[position]);
-            holder.ivLogo.setOval(true);
-            holder.ivLogo.setLetter(roles[position].charAt(0));
-            holder.tvRole.setText(roles[position]);
-            roleValue(roles[position], holder);
+            title = (TextView)convertView.findViewById(R.id.tvMain);
+            description = (TextView)convertView.findViewById(R.id.tvDescription);
+            role = (TextView)convertView.findViewById(R.id.tvRole);
+            ivLogo = (LetterImageView)convertView.findViewById(R.id.ivLetter);
 
+
+            title.setText(sTitles[position]);
+            description.setText(sDescription[position]);
+            role.setText(sRoles[position]);
+            ivLogo.setOval(true);
+            ivLogo.setLetter(sRoles[position].charAt(0));
+            roleValue(sRoles[position], ivLogo);
 
             return convertView;
-        }
-
-        class ViewHolder{
-            private LetterImageView ivLogo;
-            private TextView tvMain;
-            private TextView tvRole;
-            private TextView tvDescription;
 
         }
 
-        void roleValue(String role, ViewHolder holder){
+        void roleValue(String role, LetterImageView ivLogo){
             switch(role){
                 case "Taller":
-                    holder.ivLogo.setBackgroundColorLetter(0);
+                    ivLogo.setBackgroundColorLetter(0);
                     break;
                 case "Seminario":
-                    holder.ivLogo.setBackgroundColorLetter(1);
+                    ivLogo.setBackgroundColorLetter(1);
                     break;
                 case "Concierto":
-                    holder.ivLogo.setBackgroundColorLetter(2);
+                    ivLogo.setBackgroundColorLetter(2);
                     break;
                 case "Actividad":
-                    holder.ivLogo.setBackgroundColorLetter(3);
+                    ivLogo.setBackgroundColorLetter(3);
                     break;
                 case "Torneo":
-                    holder.ivLogo.setBackgroundColorLetter(4);
+                    ivLogo.setBackgroundColorLetter(4);
                     break;
                 case "Concurso":
-                    holder.ivLogo.setBackgroundColorLetter(5);
+                    ivLogo.setBackgroundColorLetter(5);
                     break;
 
             }
+    }
+
+
         }
     }
 
 
-    }
+
 
 
