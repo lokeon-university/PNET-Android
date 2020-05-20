@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AssistantActivity">
+    android:layout_height="wrap_content"
+    tools:context=".AssistantActivity"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_height="match_parent"
-        android:layout_width="match_parent" >
-
+        android:layout_width="match_parent">
         <include
             android:id="@+id/top_toolbar"
             layout="@layout/toolbar_top"></include>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" >
-        <include
-            android:id="@+id/bottom_toolbar"
-            layout="@layout/toolbar_bottom"></include>
-    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+                <Button
+                android:id="@+id/button_add_assistant"
+                android:layout_width="@android:dimen/app_icon_size"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_add_assistant"
+               />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include
+                android:id="@+id/bottom_toolbar"
+                layout="@layout/toolbar_bottom"></include>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

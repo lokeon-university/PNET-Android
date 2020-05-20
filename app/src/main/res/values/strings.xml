@@ -5,6 +5,7 @@
     <string name="location">Localización</string>
     <string name="importantdates">Fechas Importantes</string>
     <string name="assistant">Asistentes</string>
+    <string name="add_assistant">Añador asistentes</string>
 
     <string name="appwidget_text">Programa Manguca</string>
     <string name="configure">Configuración</string>
@@ -15,6 +16,15 @@
         Ha integrado su singularidad a numerosos actos privados y corporativos, sorprendiendo y maravillando a los asistentes de estos eventos.
         Con 300 m2 repartidos en 3 plazas en diferentes niveles.\n\nUn espacio ideal para la celebración de actos al aire libre como recepciones,
         cenas o exhibiciones deportivas, así como también sesiones fotográficas, debido a que se trata de un espacio emblemático con unas vistas panorámicas únicas. </string>
+
+    <string name="nombre">Nombre </string>
+    <string name="apellido">Apellido </string>
+    <string name="email">Email </string>
+    <string name="telefono">Telefono </string>
+    <string name="dni">DNI</string>
+    <string name="fechaIns">Fecha de Inscripción</string>
+    <string name="fechaNac">Fecha de Nacimiento</string>
+    <string name="aceptar">Aceptar </string>
 
     <string-array name="Main">
         <item> Charla WowChakra </item>
@@ -86,7 +96,6 @@
         <item>Actividad</item>
         <item>Actividad</item>
         <item>Actividad</item>
-
 
 
     </string-array>
