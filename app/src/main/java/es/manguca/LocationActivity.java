@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -32,6 +33,15 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
         getSupportActionBar().setTitle(R.string.location);
+
+        TextView title_map = (TextView) findViewById(R.id.title_map);
+        title_map.setText(R.string.title_map);
+
+        TextView event = (TextView) findViewById(R.id.title_event);
+        event.setText(R.string.title_event);
+
+        TextView inf_event = (TextView) findViewById(R.id.inf_event);
+        inf_event.setText(R.string.inf_event);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

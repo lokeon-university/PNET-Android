@@ -9,6 +9,12 @@
     <string name="appwidget_text">Programa Manguca</string>
     <string name="configure">Configuración</string>
     <string name="add_widget">Añadir Widget</string>
+    <string name="title_map">Ubicación del mapa</string>
+    <string name="title_event">Información del recinto </string>
+    <string name="inf_event">El Complejo Deportivo, situada en el marco natural e incomparable de Puerto Real, es un espacio con identidad propia.
+        Ha integrado su singularidad a numerosos actos privados y corporativos, sorprendiendo y maravillando a los asistentes de estos eventos.
+        Con 300 m2 repartidos en 3 plazas en diferentes niveles.\n\nUn espacio ideal para la celebración de actos al aire libre como recepciones,
+        cenas o exhibiciones deportivas, así como también sesiones fotográficas, debido a que se trata de un espacio emblemático con unas vistas panorámicas únicas. </string>
 
     <string-array name="Main">
         <item> Charla WowChakra </item>
