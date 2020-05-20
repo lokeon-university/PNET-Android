@@ -6,6 +6,47 @@
     android:layout_height="?actionBarSize"
     android:layout_gravity="bottom|end"
     android:background="@color/gray"
-    app:menu="@menu/navigation"
     >
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_home"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_schedule"
+        android:id="@+id/button_schedule"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_assistants"
+        android:id="@+id/button_assistant"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_location"
+        android:id="@+id/button_location"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_date"
+        android:id="@+id/button_date" />
+
+</LinearLayout>
 </androidx.appcompat.widget.Toolbar>

@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class AssistantActivity extends AppCompatActivity {
 
@@ -24,37 +26,47 @@ public class AssistantActivity extends AppCompatActivity {
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
         getSupportActionBar().setTitle(R.string.assistant);
+
+        Button btn_home = (Button)findViewById(R.id.button_home);
+        Button btn_schedule = (Button)findViewById(R.id.button_schedule);
+        Button btn_assistant = (Button)findViewById(R.id.button_assistant);
+        Button btn_location = (Button)findViewById(R.id.button_location);
+        Button btn_date = (Button)findViewById(R.id.button_date);
+
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AssistantActivity.this, MainActivity.class));
+            }
+        });
+
+        btn_schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AssistantActivity.this, ProgramActivity.class));
+            }
+        });
+
+        btn_assistant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AssistantActivity.this, AssistantActivity.class));
+            }
+        });
+
+        btn_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AssistantActivity.this, LocationActivity.class));
+            }
+        });
+
+        btn_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AssistantActivity.this, ImportantDatesActivity.class));
+            }
+        });
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        //handle presses on the action bar items
-        switch (item.getItemId()) {
-
-            case R.id.menu_program:
-                startActivity(new Intent(this, ProgramActivity.class));
-                return true;
-
-            case R.id.menu_assitant:
-                startActivity(new Intent(this, AssistantActivity.class));
-                return true;
-
-            case R.id.menu_home:
-                startActivity(new Intent(this, MainActivity.class));
-                return true;
-
-            case R.id.menu_location:
-                startActivity(new Intent(this, LocationActivity.class));
-                return true;
-
-            case R.id.menu_importantdates:
-                startActivity(new Intent(this, ImportantDatesActivity.class));
-                return true;
-
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

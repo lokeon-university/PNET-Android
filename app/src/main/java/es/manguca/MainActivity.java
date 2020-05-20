@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,35 +28,45 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(top_toolbar);
         getSupportActionBar().setTitle(R.string.home);
 
-    }
+        Button btn_home = (Button)findViewById(R.id.button_home);
+        Button btn_schedule = (Button)findViewById(R.id.button_schedule);
+        Button btn_assistant = (Button)findViewById(R.id.button_assistant);
+        Button btn_location = (Button)findViewById(R.id.button_location);
+        Button btn_date = (Button)findViewById(R.id.button_date);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
+            }
+        });
 
-        switch (item.getItemId()) {
+        btn_schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ProgramActivity.class));
+            }
+        });
 
-            case R.id.menu_program:
-                startActivity(new Intent(this, ProgramActivity.class));
-                return true;
+        btn_assistant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AssistantActivity.class));
+            }
+        });
 
-            case R.id.menu_assitant:
-                startActivity(new Intent(this, AssistantActivity.class));
-                return true;
+        btn_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LocationActivity.class));
+            }
+        });
 
-            case R.id.menu_home:
-                startActivity(new Intent(this, MainActivity.class));
-                return true;
-
-            case R.id.menu_location:
-                startActivity(new Intent(this, LocationActivity.class));
-                return true;
-
-            case R.id.menu_importantdates:
-                startActivity(new Intent(this, ImportantDatesActivity.class));
-                return true;
-
-        }
-
-        return super.onOptionsItemSelected(item);
+        btn_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ImportantDatesActivity.class));
+            }
+        });
     }
 }
