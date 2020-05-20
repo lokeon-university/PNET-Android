@@ -26,6 +26,16 @@
     <string name="fechaNac">Fecha de Nacimiento</string>
     <string name="aceptar">Aceptar </string>
 
+    <string-array name="title_main">
+        <item>Voces de Overwatch</item>
+        <item>Pol Tattoo</item>
+    </string-array>
+
+    <string-array name="role_main">
+        <item>Actores</item>
+        <item>Artista</item>
+    </string-array>
+
     <string-array name="Main">
         <item> Charla WowChakra </item>
         <item> Inscripciones competición </item>
@@ -36,39 +46,113 @@
         <item> Competición DDR </item>
         <item> Charla Voces de Overwatch </item>
         <item> Descanso</item>
-        <item> Torneo Tekken </item>
-        <item> Torneo YuGiOh </item>
-        <item> Torneo LOL</item>
-        <item> Torneo Super Smash Bros.</item>
-        <item> Torneo Magic</item>
-        <item> Torneo FIFA</item>
+        <item>Torneo Tekken</item>
+        <item>Torneo LOL</item>
+        <item>Torneo Super Smash Bros.</item>
+        <item>Torneo Magic</item>
+        <item>Torneo YuGiOh</item>
+        <item>Torneo FIFA</item>
         <item> Concierto FAKY</item>
         <item> Concierto SUKISHA </item>
 
 
     </string-array>
-
-    <string-array name="Description">
-        <item> Description 1 </item>
-        <item> Description 2 </item>
-        <item> Description 3 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-        <item> Description 4 </item>
-
+    <string-array name="Main_day2">
+        <item> Firmas Laia López </item>
+        <item> Firmas H Alexander </item>
+        <item>Inscripciones competición</item>
+        <item>Taller de fotografía cosplay</item>
+        <item>Ser autónomo: con Ginny Di</item>
+        <item>Bodas otakus</item>
+        <item>Bailes Kpopers</item>
+        <item>Charla Voces de OW</item>
+        <item>Competición DDR</item>
+        <item>Nate Gentile: Básicos de Overclocking</item>
+        <item>Descanso</item>
+        <item>Torneo Tekken</item>
+        <item>Torneo LOL</item>
+        <item>Torneo Super Smash Bros.</item>
+        <item>Torneo Magic</item>
+        <item>Torneo YuGiOh</item>
+        <item>Torneo FIFA</item>
+        <item>Concierto Kiki vivi lily</item>
+        <item>Concierto Lady Beard</item>
+    </string-array>
+    <string-array name="Main_day3">
+        <item> Exposición coches frikis </item>
+        <item> Inscripciones competición </item>
+        <item> Degustación comidas japonesas </item>
+        <item> Bodas otakus</item>
+        <item> Pasarela Cosplay</item>
+        <item> Descanso</item>
+        <item> Torneo Tekken</item>
+        <item>Torneo LOL</item>
+        <item>Torneo Super Smash Bros.</item>
+        <item>Torneo Magic</item>
+        <item>Torneo YuGiOh</item>
+        <item>Torneo FIFA</item>
+        <item>Competición DDR</item>
+        <item> Bailes Kpopers</item>
     </string-array>
 
+    <string-array name="Description">
+        <item>10:00-12:00</item>
+        <item>10:00-12:00</item>
+        <item>11:00-13:30</item>
+        <item>11:00-13:30</item>
+        <item>12:30-20:00</item>
+        <item>12:30-15:00</item>
+        <item>13:30-15:00</item>
+        <item>13:30-15:00</item>
+        <item>15:00-16:30</item>
+        <item>16:30-19:00</item>
+        <item>16:30-20:00</item>
+        <item>16:30-17:30</item>
+        <item>17:30-19:00</item>
+        <item>19:00-20:00</item>
+        <item>19:00-20:00</item>
+        <item>20:00-21:00</item>
+        <item>21:00-22:00</item>
+    </string-array>
+
+    <string-array name="Description_day2">
+        <item>10:00-11:30</item>
+        <item>10:00-11:30</item>
+        <item>10:00-12:30</item>
+        <item>11:30-13:30</item>
+        <item>11:30-13:00</item>
+        <item>12:30-20:00</item>
+        <item>13:00-15:00</item>
+        <item>13:00-14:00</item>
+        <item>13:30-15:00</item>
+        <item>14:00-15:00</item>
+        <item>15:00-16:30</item>
+        <item>16:30-19:00</item>
+        <item>16:30-20:00</item>
+        <item>16:30-17:30</item>
+        <item>17:30-19:00</item>
+        <item>19:00-20:00</item>
+        <item>19:00-20:00</item>
+        <item>20:00-21:00</item>
+        <item>21:00-22:00</item>
+    </string-array>
+
+    <string-array name="Description_day3">
+        <item>10:00-15:00</item>
+        <item>10:00-12:30</item>
+        <item>10:00-15:00</item>
+        <item>12:30-20:00</item>
+        <item>12:30-15:00</item>
+        <item>15:00-16:30</item>
+        <item>16:30-19:00</item>
+        <item>16:30-20:00</item>
+        <item>16:30-17:30</item>
+        <item>17:30-19:00</item>
+        <item>19:00-20:00</item>
+        <item>19:00-20:00</item>
+        <item>20:00-21:30</item>
+        <item>20:00-22:00</item>
+    </string-array>
     <string-array name="Week">
         <item> Monday </item>
         <item> Tuesday </item>
@@ -79,27 +163,66 @@
     </string-array>
 
     <string-array name="roles">
+        <item>Actividad</item>
+        <item>Torneo</item>
         <item>Taller</item>
-        <item>Seminario</item>
+        <item>Taller</item>
+        <item>Actividad</item>
+        <item>Actividad</item>
+        <item>Torneo</item>
+        <item>Actividad</item>
+        <item>Descanso</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
         <item>Concierto</item>
-        <item>Actividad</item>
-        <item>Concurso</item>
-        <item>Torneo</item>
-        <item>Torneo</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-        <item>Actividad</item>
-
+        <item>Concierto</item>
 
     </string-array>
 
+
+    <string-array name="roles_day2">
+        <item>Actividad</item>
+        <item>Actividad</item>
+        <item>Torneo</item>
+        <item>Taller</item>
+        <item>Taller</item>
+        <item>Actividad</item>
+        <item>Actividad</item>
+        <item>Actividad</item>
+        <item>Torneo</item>
+        <item>Taller</item>
+        <item>Descanso</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Concierto</item>
+        <item>Concierto</item>
+
+    </string-array>
+
+    <string-array name="roles_day3">
+        <item>Actividad</item>
+        <item>Torneo</item>
+        <item>Actividad</item>
+        <item>Actividad</item>
+        <item>Actividad</item>
+        <item>Descanso</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Torneo</item>
+        <item>Actividad</item>
+    </string-array>
     <string-array name="Monday">
         <item>Mixed Signal Design</item>
         <item>Analog Wave Propogation</item>

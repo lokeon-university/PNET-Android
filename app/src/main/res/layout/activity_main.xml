@@ -24,7 +24,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:id="@+id/lvMain_layout_home"
             >
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="10dp"
+                android:id="@+id/lvMain_home"
+                android:paddingBottom="?actionBarSize"
+                android:gravity="center_horizontal"
+                >
+            </ListView>
 
         </LinearLayout>
 

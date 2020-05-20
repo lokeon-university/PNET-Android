@@ -3,20 +3,32 @@ package es.manguca;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        listView = (ListView)findViewById(R.id.lvMain_home);
+        setupListView();
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
         setSupportActionBar(bottom_toolbar);
@@ -69,4 +81,102 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+    private void setupListView(){
+        String [] titleArray = getResources().getStringArray(R.array.title_main);
+        String[] roleArray = getResources().getStringArray(R.array.role_main);
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, titleArray, roleArray);
+        listView.setAdapter(simpleAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0: {
+                        //Intent intent = new Intent(ProgramActivity.this, WeekActivity.class);
+                        //startActivity(intent);
+                        break;
+                    }
+                    case 1: {
+                        break;
+                    }
+                    case 2: {
+                        break;
+                    }
+                    case 3: {
+                        break;
+                    }
+                }
+            }
+        });
+    }
+
+
+    public class SimpleAdapter extends BaseAdapter {
+
+        private Context mContext;
+        private LayoutInflater layoutInflater;
+        private TextView title, role;
+        private String[] titleArray;
+        private String[] roleArray;
+        private ImageView imageView;
+
+        public SimpleAdapter(Context context, String[] title, String[] role){
+            mContext = context;
+            titleArray = title;
+            roleArray = role;
+            layoutInflater = LayoutInflater.from(context);
+        }
+
+
+        @Override
+        public int getCount() {
+            return titleArray.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return titleArray[position];
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if(convertView == null){
+                convertView = layoutInflater.inflate(R.layout.activity_main_single_item, null);
+            }
+
+            title = (TextView)convertView.findViewById(R.id.tvTitle);
+            role = (TextView)convertView.findViewById(R.id.tvRole_main);
+            imageView = (ImageView)convertView.findViewById(R.id.ivImage);
+            System.out.println("position:" + position);
+            System.out.println(titleArray[position]);
+
+            title.setText(titleArray[position]);
+            System.out.println("position2:" + position);
+            role.setText(roleArray[position]);
+            System.out.println(roleArray[position]);
+            switch(position){
+                case 0:
+                    imageView.setImageResource(R.drawable.artist1);
+                    break;
+                case 1:
+                    imageView.setImageResource(R.drawable.artist2);
+                    break;
+            }
+
+
+
+            return convertView;
+
+        }
+    }
+
 }
+

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_height="wrap_content"
-    android:layout_width="match_parent"
+<androidx.cardview.widget.CardView
+    android:layout_width="200dp"
+    android:layout_height="300dp"
     android:background="@color/colorAccent"
     android:elevation="4dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -10,11 +11,11 @@
         android:layout_height="wrap_content">
 
 
-
         <es.manguca.Utils.LetterImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:id="@+id/ivLetter"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/ivImage"
             android:layout_margin="8dp"/>
 
         <TextView
@@ -22,31 +23,20 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvRole_main"
             android:text="Role"
-            android:layout_toRightOf="@+id/ivLetter"
-            android:layout_alignTop="@+id/ivLetter"
+            android:layout_below="@id/ivImage"
             android:textSize="12dp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvMain"
+            android:id="@+id/tvTitle"
             android:text="Program"
             android:textStyle="bold"
             android:textSize="24sp"
             android:layout_below="@+id/tvRole_main"
-            android:layout_toRightOf="@+id/ivLetter"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvDescription"
-            android:text="Description"
-            android:layout_below="@+id/tvMain"
-            android:layout_toRightOf="@+id/ivLetter"
-            android:textSize="16dp"
             />
+
+
 
 
     </RelativeLayout>
