@@ -1,0 +1,33 @@
+{
+  "name": "manguca",
+  "version": "1.0.0",
+  "description": "Manguca project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lokeon/PNET-APIRest.git"
+  },
+  "keywords": [
+    "api",
+    "web",
+    "jquery",
+    "node",
+    "rest"
+  ],
+  "author": "Kevin Lopez Cala & Carmen del Mar Ruiz de Celis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lokeon/PNET-APIRest/issues"
+  },
+  "homepage": "https://github.com/Lokeon/PNET-APIRest#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.5",
+    "morgan": "^1.10.0"
+  }
+}

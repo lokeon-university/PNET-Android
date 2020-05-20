@@ -137,5 +137,21 @@ fabric.properties
 
 google_maps_api*
 
+# dependencies
+/node/node_modules
+/.pnp
+.pnp.js
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+/node/routes/activity-service.js
+
+npm-debug.log*
+package-lock.json
+
 # End of https://www.gitignore.io/api/androidstudio
 
