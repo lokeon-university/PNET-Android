@@ -24,14 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
-        getSupportActionBar().setTitle("Inicio");
+        getSupportActionBar().setTitle(R.string.home);
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        //handle presses on the action bar items
         switch (item.getItemId()) {
 
             case R.id.menu_program:

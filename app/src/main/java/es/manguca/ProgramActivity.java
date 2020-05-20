@@ -42,7 +42,7 @@ public class ProgramActivity extends AppCompatActivity {
 
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
-        getSupportActionBar().setTitle("Programa");
+        getSupportActionBar().setTitle(R.string.program);
 
     }
 

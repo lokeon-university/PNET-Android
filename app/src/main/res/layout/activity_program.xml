@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,20 +6,18 @@
     android:layout_height="wrap_content"
     tools:context=".ProgramActivity"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <include
             android:id="@+id/top_toolbar"
-            layout="@layout/top_toolbar"></include>
+            layout="@layout/toolbar_top"></include>
     </LinearLayout>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".ProgramActivity">
 
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,8 +34,7 @@
         >
     </ListView>
 
-</LinearLayout>
-
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,6 +44,6 @@
             layout="@layout/toolbar_bottom"></include>
     </LinearLayout>
 
+    </RelativeLayout>
 
-</RelativeLayout>
 </LinearLayout>

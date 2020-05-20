@@ -31,7 +31,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
 
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
-        getSupportActionBar().setTitle("Localización");
+        getSupportActionBar().setTitle(R.string.location);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

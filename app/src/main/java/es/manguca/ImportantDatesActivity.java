@@ -23,7 +23,7 @@ public class ImportantDatesActivity extends AppCompatActivity {
 
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
-        getSupportActionBar().setTitle("Fechas Importantes");
+        getSupportActionBar().setTitle(R.string.importantdates);
     }
 
     @Override

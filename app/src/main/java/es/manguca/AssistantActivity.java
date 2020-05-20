@@ -23,7 +23,7 @@ public class AssistantActivity extends AppCompatActivity {
 
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
-        getSupportActionBar().setTitle("Asistentes");
+        getSupportActionBar().setTitle(R.string.assistant);
     }
 
 
