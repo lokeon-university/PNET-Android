@@ -6,8 +6,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
-
-import es.manguca.MainActivity;
 import es.manguca.ProgramActivity;
 import es.manguca.R;
 
