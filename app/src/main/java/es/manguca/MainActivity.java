@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = (ListView)findViewById(R.id.lvMain_home);
+        listView = (ListView)findViewById(R.id.list_artist);
         setupListView();
         listView.setBackgroundColor(Color.WHITE);
         setListViewHeightBasedOnChildren(listView);

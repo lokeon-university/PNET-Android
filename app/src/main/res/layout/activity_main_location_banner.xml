@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/banner_location"
+    android:elevation="4dp"
+    android:background="@color/yellow"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Estamos en:"
+            android:textSize="24dp"
+            android:background="@color/yellow"
+            android:gravity="left|center"
+            android:layout_alignParentStart="true"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Complejo Deportivo UCA\n
+Av Argentina, 10\n
+11519 Puerto Real, Cádiz"
+            android:textSize="18dp"
+            android:background="@color/yellow"
+            android:gravity="right|center"
+            android:layout_alignParentEnd="true"
+
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

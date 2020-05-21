@@ -18,7 +18,8 @@
             android:id="@+id/ivBanner_Titles"
             android:text="@string/title1"
             android:textSize="24dp"
-            android:gravity="center_vertical|left"
+            android:textColor="@color/red"
+            android:gravity="center_vertical|center"
             android:paddingLeft="10dp"
             />
 
