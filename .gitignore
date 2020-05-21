@@ -136,6 +136,7 @@ fabric.properties
 ##MIO
 
 google_maps_api*
+ip_node*
 
 # dependencies
 /node/node_modules

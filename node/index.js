@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", function (req, res) {
   res.send("Hello World!");
 });
-app.use("/activities", activity);
+app.use("/assistants", activity);
 activityService.connectDb(function (err) {
   if (err) {
     console.log("Could not connect with MongoDB–moviesService");
