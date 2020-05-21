@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <include
             android:id="@+id/top_toolbar"
             layout="@layout/toolbar_top"></include>
@@ -17,44 +17,51 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/banner_title_1">
-            <include
-                layout="@layout/activity_main_titles"
-                ></include></LinearLayout>
-        <LinearLayout
+        <!-- CONTENIDO-->
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/lvMain_layout_home"
-            android:layout_below="@id/banner_title_1"
-            >
-            <ListView
+            android:fillViewport="true">
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:dividerHeight="10dp"
-                android:id="@+id/lvMain_home"
-                android:paddingBottom="?actionBarSize"
-                android:gravity="center_horizontal|center"
-                android:layout_margin="20dp"
-                >
-            </ListView>
+                android:layout_height="match_parent">
 
-            <include
-                layout="@layout/activity_main_banner"
-                ></include>
+                <LinearLayout
+                    android:id="@+id/banner_title_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/activity_main_titles"></include>
+                </LinearLayout>
 
-        </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lvMain_layout_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/banner_title_1"
+                    android:orientation="vertical">
 
+                    <ListView
+                        android:id="@+id/lvMain_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:dividerHeight="10dp"
+                        android:gravity="center_horizontal|center"
+                        android:paddingBottom="?actionBarSize"></ListView>
+
+                    <include layout="@layout/activity_main_banner"></include>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <include
                 android:id="@+id/bottom_toolbar"
                 layout="@layout/toolbar_bottom"></include>
