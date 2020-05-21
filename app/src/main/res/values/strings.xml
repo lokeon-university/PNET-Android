@@ -36,6 +36,16 @@
         <item>Artista</item>
     </string-array>
 
+    <string-array name="title_main_contest">
+        <item>Asian Cover Dance</item>
+        <item>Pop Culture Hiroshima</item>
+    </string-array>
+
+    <string-array name="role_main_contest">
+        <item>Danza</item>
+        <item>Cosplay y actuación</item>
+    </string-array>
+
     <string-array name="Main">
         <item> Charla WowChakra </item>
         <item> Inscripciones competición </item>

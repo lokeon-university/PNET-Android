@@ -2,6 +2,7 @@ package es.manguca;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +25,8 @@ import es.manguca.Utils.LetterImageView;
 
 
 public class MainActivity extends AppCompatActivity {
-    private ListView listView, bannerListView;
+    private ListView listViewArtist, listViewActivities;
+    private CardView title2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +34,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = (ListView)findViewById(R.id.list_artist);
-        setupListView();
-        listView.setBackgroundColor(Color.WHITE);
-        setListViewHeightBasedOnChildren(listView);
+        listViewArtist = (ListView)findViewById(R.id.list_artist);
+        setupListViewArtist();
+        listViewArtist.setBackgroundColor(Color.WHITE);
+        setListViewHeightBasedOnChildren(listViewArtist);
+
+
+        listViewActivities = (ListView)findViewById(R.id.list_contest);
+        setupListViewActivities();
+        listViewActivities.setBackgroundColor(Color.WHITE);
+        setListViewHeightBasedOnChildren(listViewActivities);
+
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
         setSupportActionBar(bottom_toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -88,34 +97,62 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
+    public static void setListViewHeightBasedOnChildren(ListView listViewArtist) {
 
-        ListAdapter listAdapter = listView.getAdapter();
+        ListAdapter listAdapter = listViewArtist.getAdapter();
         if (listAdapter == null) {
             return;
         }
 
         int totalHeight = 0;
         for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
-            View listItem = listAdapter.getView(i, null, listView);
+            View listItem = listAdapter.getView(i, null, listViewArtist);
             listItem.measure(0, 0);
             totalHeight += listItem.getMeasuredHeight();
         }
 
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        ViewGroup.LayoutParams params = listViewArtist.getLayoutParams();
         params.height = totalHeight
-                + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
+                + (listViewArtist.getDividerHeight() * (listAdapter.getCount() - 1));
+        listViewArtist.setLayoutParams(params);
     }
 
-
-    private void setupListView(){
+    private void setupListViewArtist(){
         String [] titleArray = getResources().getStringArray(R.array.title_main);
         String[] roleArray = getResources().getStringArray(R.array.role_main);
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, titleArray, roleArray);
+        ArtistAdapter artistAdapter = new ArtistAdapter(this, titleArray, roleArray);
 
-        listView.setAdapter(simpleAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewArtist.setAdapter(artistAdapter);
+        listViewArtist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0: {
+                        //Intent intent = new Intent(ProgramActivity.this, WeekActivity.class);
+                        //startActivity(intent);
+                        break;
+                    }
+                    case 1: {
+                        break;
+                    }
+                    case 2: {
+                        break;
+                    }
+                    case 3: {
+                        break;
+                    }
+                }
+            }
+        });
+    }
+
+    private void setupListViewActivities(){
+        String [] titleArray = getResources().getStringArray(R.array.title_main_contest);
+        String[] roleArray = getResources().getStringArray(R.array.role_main_contest);
+        ActivitiesAdapter activitiesAdapter = new ActivitiesAdapter(this, titleArray, roleArray);
+
+        listViewActivities.setAdapter(activitiesAdapter);
+        listViewActivities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
@@ -139,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public class SimpleAdapter extends BaseAdapter {
+    public class ArtistAdapter extends BaseAdapter {
 
         private Context mContext;
         private LayoutInflater layoutInflater;
@@ -148,14 +185,14 @@ public class MainActivity extends AppCompatActivity {
         private String[] roleArray;
         private ImageView imageView;
 
-        public SimpleAdapter(Context context, String[] title, String[] role){
+        public ArtistAdapter(Context context, String[] title, String[] role){
             mContext = context;
             titleArray = title;
             roleArray = role;
             layoutInflater = LayoutInflater.from(context);
         }
 
-
+       
         @Override
         public int getCount() {
             return titleArray.length;
@@ -203,6 +240,71 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public class ActivitiesAdapter extends BaseAdapter {
+
+        private Context mContext;
+        private LayoutInflater layoutInflater;
+        private TextView title, role;
+        private String[] titleArray;
+        private String[] roleArray;
+        private ImageView imageView;
+
+        public ActivitiesAdapter(Context context, String[] title, String[] role){
+            mContext = context;
+            titleArray = title;
+            roleArray = role;
+            layoutInflater = LayoutInflater.from(context);
+        }
+
+
+        @Override
+        public int getCount() {
+            return titleArray.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return titleArray[position];
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if(convertView == null){
+                convertView = layoutInflater.inflate(R.layout.activity_main_single_item, null);
+            }
+
+            title = (TextView)convertView.findViewById(R.id.tvTitle);
+            role = (TextView)convertView.findViewById(R.id.tvRole_main);
+            imageView = (ImageView)convertView.findViewById(R.id.ivImage);
+            System.out.println("position:" + position);
+            System.out.println(titleArray[position]);
+
+            title.setText(titleArray[position]);
+            System.out.println("position2:" + position);
+            role.setText(roleArray[position]);
+            System.out.println(roleArray[position]);
+            switch(position){
+                case 0:
+                    imageView.setImageResource(R.drawable.act1);
+                    break;
+                case 1:
+                    imageView.setImageResource(R.drawable.act2);
+                    break;
+            }
+
+
+
+            return convertView;
+
+        }
+    }
 
 }
 
