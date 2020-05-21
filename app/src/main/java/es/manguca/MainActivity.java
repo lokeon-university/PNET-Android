@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,9 +19,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import es.manguca.Utils.LetterImageView;
+
 
 public class MainActivity extends AppCompatActivity {
-    private ListView listView;
+    private ListView listView, bannerListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView = (ListView)findViewById(R.id.lvMain_home);
         setupListView();
+        listView.setBackgroundColor(Color.WHITE);
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
         setSupportActionBar(bottom_toolbar);
@@ -89,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         String[] roleArray = getResources().getStringArray(R.array.role_main);
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, titleArray, roleArray);
         listView.setAdapter(simpleAdapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -178,5 +181,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
 }
+
 

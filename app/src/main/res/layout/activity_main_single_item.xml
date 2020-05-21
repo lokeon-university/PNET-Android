@@ -13,10 +13,10 @@
 
         <es.manguca.Utils.LetterImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="400dp"
             android:layout_centerHorizontal="true"
             android:id="@+id/ivImage"
-            android:layout_margin="8dp"/>
+           />
 
         <TextView
             android:layout_width="wrap_content"

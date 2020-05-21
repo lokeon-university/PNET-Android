@@ -187,7 +187,7 @@ public class ProgramActivity extends AppCompatActivity {
 
     }
 
-    public class SimpleAdapter extends BaseAdapter{
+    public class SimpleAdapter extends BaseAdapter {
         private LetterImageView ivLogo;
         private Context mContext;
         private LayoutInflater layoutInflater;
@@ -196,10 +196,10 @@ public class ProgramActivity extends AppCompatActivity {
         private String[] sDescription;
         private String[] sTitles;
 
-        public SimpleAdapter(Context context, int dia){
+        public SimpleAdapter(Context context, int dia) {
             mContext = context;
             layoutInflater = LayoutInflater.from(context);
-            switch(dia){
+            switch (dia) {
                 case 1:
                     sRoles = getResources().getStringArray(R.array.roles);
                     sDescription = getResources().getStringArray(R.array.Description);
@@ -237,14 +237,14 @@ public class ProgramActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            if(convertView == null){
+            if (convertView == null) {
                 convertView = layoutInflater.inflate(R.layout.activity_program_single_item, null);
             }
 
-            title = (TextView)convertView.findViewById(R.id.tvMain);
-            description = (TextView)convertView.findViewById(R.id.tvDescription);
-            role = (TextView)convertView.findViewById(R.id.tvRole_main);
-            ivLogo = (LetterImageView)convertView.findViewById(R.id.ivLetter);
+            title = (TextView) convertView.findViewById(R.id.tvMain);
+            description = (TextView) convertView.findViewById(R.id.tvDescription);
+            role = (TextView) convertView.findViewById(R.id.tvRole_main);
+            ivLogo = (LetterImageView) convertView.findViewById(R.id.ivLetter);
 
 
             title.setText(sTitles[position]);
@@ -258,8 +258,8 @@ public class ProgramActivity extends AppCompatActivity {
 
         }
 
-        void roleValue(String role, LetterImageView ivLogo){
-            switch(role){
+        void roleValue(String role, LetterImageView ivLogo) {
+            switch (role) {
                 case "Taller":
                     ivLogo.setBackgroundColorLetter(0);
                     break;
@@ -280,10 +280,9 @@ public class ProgramActivity extends AppCompatActivity {
                     break;
 
             }
-    }
-
-
         }
+
+    }
     }
 
 

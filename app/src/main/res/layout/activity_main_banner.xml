@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/banner"
+    android:elevation="4dp"
+    android:background="@color/yellow"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/ivBanner"
+            android:text="¡Consigue ya tu entrada!"
+            android:textSize="24dp"
+            android:background="@color/yellow"
+            android:gravity="center_vertical|center"
+
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
