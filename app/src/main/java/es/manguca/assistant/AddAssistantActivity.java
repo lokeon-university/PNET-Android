@@ -1,23 +1,25 @@
 package es.manguca.assistant;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import org.json.JSONObject;
-
 import java.io.BufferedWriter;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import es.manguca.AssistantActivity;
 import es.manguca.ImportantDatesActivity;
@@ -32,6 +34,8 @@ public class AddAssistantActivity extends AppCompatActivity {
     private EditText txtEmail;
     private EditText txtDni;
     private EditText txtTlf;
+    private EditText txtBirth;
+    private EditText txtIns;
     private Button btn_aceptar;
 
     @Override
@@ -52,8 +56,10 @@ public class AddAssistantActivity extends AppCompatActivity {
         txtNombre = (EditText) findViewById(R.id.TxtNombre);
         txtApellidos = (EditText) findViewById(R.id.TxtApellido);
         txtEmail = (EditText) findViewById(R.id.TxtEmail);
-        txtDni = (EditText) findViewById(R.id.TxtEmail);
+        txtDni = (EditText) findViewById(R.id.TxtDni);
         txtTlf = (EditText) findViewById(R.id.TxtTlf);
+        txtBirth = (EditText) findViewById(R.id.DateNac);
+        txtIns = (EditText) findViewById(R.id.fechaIns);
         btn_aceptar = (Button) findViewById(R.id.BtnAceptar);
 
         Button btn_home = (Button)findViewById(R.id.button_home);
@@ -102,9 +108,61 @@ public class AddAssistantActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                new PostAssistant().execute();
+               txtNombre.setText("");
+               txtApellidos.setText("");
+               txtEmail.setText("");
+               txtTlf.setText("");
+               txtDni.setText("");
            }
        });
 
+        final Calendar calendar = Calendar.getInstance();
+
+        final DatePickerDialog.OnDateSetListener date_birth = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, monthOfYear);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                String date_format = "dd/MM/yy";
+                SimpleDateFormat sdf = new SimpleDateFormat(date_format, new Locale("es", "ES"));
+                txtBirth.setText(sdf.format(calendar.getTime()));
+            }
+        };
+
+        final DatePickerDialog.OnDateSetListener date_ins = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, monthOfYear);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                String date_format = "dd/MM/yy";
+                SimpleDateFormat sdf = new SimpleDateFormat(date_format, new Locale("es", "ES"));
+                txtIns.setText(sdf.format(calendar.getTime()));
+            }
+        };
+
+        txtBirth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(AddAssistantActivity.this, date_birth, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        txtIns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(AddAssistantActivity.this,R.style.SpinnerDatePicker, date_ins, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
     }
 
     class PostAssistant extends AsyncTask<Void,Void,String> {
@@ -179,7 +237,7 @@ public class AddAssistantActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String results) {
             super.onPostExecute(results);
-            // aqui meter cosa de que ha enviado los datos
+            Toast.makeText(AddAssistantActivity.this, "El asistente ha sido añadido", Toast.LENGTH_SHORT).show();
         }
     }
 

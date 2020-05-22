@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import es.manguca.Person;

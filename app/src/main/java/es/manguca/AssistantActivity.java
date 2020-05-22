@@ -38,15 +38,6 @@ public class AssistantActivity extends AppCompatActivity implements MyRecyclerVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assistant);
 
-        // data to populate the RecyclerView with
-
-        // set up the RecyclerView
-        recyclerView = findViewById(R.id.rvAnimals);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, person);
-        adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);
-
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
         setSupportActionBar(bottom_toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -108,7 +99,6 @@ public class AssistantActivity extends AppCompatActivity implements MyRecyclerVi
 
         new GetAssistant().execute();
 
-
     }
 
     @Override
@@ -164,6 +154,12 @@ public class AssistantActivity extends AppCompatActivity implements MyRecyclerVi
                                 jsonobject.getString("birthday"),
                                 jsonobject.getString("date_insription")));
                     }
+
+                    recyclerView = findViewById(R.id.rvAnimals);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(AssistantActivity.this));
+                    adapter = new MyRecyclerViewAdapter(AssistantActivity.this, person);
+                    adapter.setClickListener(AssistantActivity.this);
+                    recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();}
