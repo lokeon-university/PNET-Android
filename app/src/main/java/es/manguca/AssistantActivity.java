@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import es.manguca.assistant.AddAssistantActivity;
 import es.manguca.Adapters.MyRecyclerViewAdapter;
 
-public class AssistantActivity<MyRecyclerViewAdapter> extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
+public class AssistantActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
 
     private MyRecyclerViewAdapter adapter;
 
