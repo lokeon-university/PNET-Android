@@ -158,7 +158,7 @@ public class AddAssistantActivity extends AppCompatActivity {
         txtIns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(AddAssistantActivity.this,R.style.SpinnerDatePicker, date_ins, calendar
+                new DatePickerDialog(AddAssistantActivity.this, date_ins, calendar
                         .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                         calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
