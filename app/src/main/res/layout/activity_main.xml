@@ -55,7 +55,7 @@
                     <include layout="@layout/activity_main_banner"></include>
 
                     <include
-                        layout="@layout/activity_main_titles"
+                        layout="@layout/activity_main_title2"
                         android:id="@+id/title_2">
                         </include>
 

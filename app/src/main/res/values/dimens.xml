@@ -7,4 +7,6 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     -->
     <dimen name="widget_margin">8dp</dimen>
     <string name="title1"><u>Últimas confirmaciones</u></string>
+    <string name="title2"><u>Concursos</u></string>
+
 </resources>
