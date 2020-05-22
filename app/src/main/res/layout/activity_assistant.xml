@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".AssistantActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".AssistantActivity">
 
     <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <include
             android:id="@+id/top_toolbar"
             layout="@layout/toolbar_top"></include>
@@ -17,31 +18,37 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvAnimals"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?actionBarSize"
+            />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            >
-                <Button
+            android:gravity="bottom|right"
+            android:layout_marginBottom="80dp"
+            android:layout_marginRight="20dp">
+
+            <Button
                 android:id="@+id/button_add_assistant"
                 android:layout_width="@android:dimen/app_icon_size"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_add_assistant"
-               />
 
+                />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <include
                 android:id="@+id/bottom_toolbar"
                 layout="@layout/toolbar_bottom"></include>

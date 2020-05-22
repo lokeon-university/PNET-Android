@@ -2,10 +2,13 @@ package es.manguca;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -32,11 +35,16 @@ public class AssistantActivity extends AppCompatActivity implements MyRecyclerVi
     private MyRecyclerViewAdapter adapter;
     private RecyclerView recyclerView;
     private ArrayList<Person> person = new ArrayList<>();
+    private Bundle bundle = new Bundle();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assistant);
+        //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
+                //DividerItemDecoration.VERTICAL);
+        //recyclerView.addItemDecoration(dividerItemDecoration);
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
         setSupportActionBar(bottom_toolbar);
@@ -103,7 +111,17 @@ public class AssistantActivity extends AppCompatActivity implements MyRecyclerVi
 
     @Override
     public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, AssistantDetailActivity.class);
+        bundle.putString("name", adapter.getItem(position).getName());
+        System.out.println("Nombre: " + adapter.getItem(position).getName());
+        bundle.putString("lastname", adapter.getItem(position).getLastname());
+        bundle.putString("email", adapter.getItem(position).getEmail());
+        bundle.putString("phone", adapter.getItem(position).getPhone());
+        bundle.putString("DNI", adapter.getItem(position).getDni());
+        bundle.putString("birth", adapter.getItem(position).getBirth());
+        bundle.putString("insDate",adapter.getItem(position).getInsDate());
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     class GetAssistant extends AsyncTask<Void,Void,String> {
