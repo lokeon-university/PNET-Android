@@ -14,18 +14,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import es.manguca.assistant.AddAssistantActivity;
+import es.manguca.Adapters.MyRecyclerViewAdapter;
 
-public class AssistantActivity<MyRecyclerViewAdapter> extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
+public class AssistantActivity<MyRecyclerViewAdapter> extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
 
-    MyRecyclerViewAdapter adapter;
-
-
-    @Override
-    public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-    }
-
-
+    private MyRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,5 +100,11 @@ public class AssistantActivity<MyRecyclerViewAdapter> extends AppCompatActivity 
         });
 
     }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+    }
+
 
 }
