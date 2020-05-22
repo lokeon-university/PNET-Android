@@ -113,6 +113,8 @@ public class AddAssistantActivity extends AppCompatActivity {
                txtEmail.setText("");
                txtTlf.setText("");
                txtDni.setText("");
+               txtBirth.setText("");
+               txtIns.setText("");
            }
        });
 
@@ -184,8 +186,8 @@ public class AddAssistantActivity extends AppCompatActivity {
             email =  txtEmail.getText().toString();
             telephone = txtTlf.getText().toString();
             dni =  txtDni.getText().toString();
-            birthday =  txtNombre.getText().toString();
-            date_inscription =  txtNombre.getText().toString();
+            birthday =  txtBirth.getText().toString();
+            date_inscription =  txtIns.getText().toString();
         }
 
         @Override
