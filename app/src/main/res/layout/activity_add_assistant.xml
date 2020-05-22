@@ -86,9 +86,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="text" />
 
+            <TextView
+                android:id="@+id/LblBirtd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fechaNac" />
+
             <EditText
                 android:id="@+id/DateNac"
-                android:hint="@string/fechaNac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -96,9 +101,14 @@
                 android:clickable="true"
                 android:maxLines="1" />
 
+            <TextView
+                android:id="@+id/LblIns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fechaIns" />
+
             <EditText
                 android:id="@+id/fechaIns"
-                android:hint="@string/fechaIns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
