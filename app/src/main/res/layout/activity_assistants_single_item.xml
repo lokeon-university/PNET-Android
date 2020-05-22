@@ -1,31 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:padding="10dp"
     android:layout_marginBottom="20dp">
 
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:orientation="horizontal"
+    android:layout_centerInParent="true"
+    android:layout_alignParentLeft="true">
 
     <es.manguca.Utils.LetterImageView
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:id="@+id/iconAssistants"
-        android:layout_margin="8dp"/>
+        />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/NameAssistant"
         android:text="Name"
         android:textStyle="bold"
         android:textSize="24sp"
-        android:layout_margin="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_toRightOf="@+id/iconAssistants"
         android:gravity="center_vertical"
-
        />
-    
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_alignParentRight="true"
+    android:layout_centerInParent="true"
+    >
+    <Button
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_edit"
+        android:id="@+id/button_edit"
+        android:backgroundTint="@color/red"
+ />
+    <Button
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_delete"
+        android:id="@+id/button_delete"
+        android:layout_gravity="center_vertical"
+        android:backgroundTint="@color/red"/>
+
 
 </LinearLayout>
+</RelativeLayout>
+
