@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".assistant.AddAssistantActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -37,8 +36,9 @@
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-        <activity android:name=".AssistantDetailActivity"></activity>
-        <activity android:name=".EditAssistantActivity"></activity>
+        <activity android:name=".assistant.AddAssistantActivity" />
+        <activity android:name=".assistant.AssistantDetailActivity"></activity>
+        <activity android:name=".assistant.EditAssistantActivity"></activity>
         <activity android:name=".ImportantDatesActivity" />
         <activity android:name=".AssistantActivity" />
         <activity android:name=".LocationActivity" />

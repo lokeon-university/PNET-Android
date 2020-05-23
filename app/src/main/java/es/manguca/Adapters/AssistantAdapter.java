@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
-import es.manguca.Person;
+import es.manguca.classes.Person;
 import es.manguca.R;
 import es.manguca.Utils.LetterImageView;
 

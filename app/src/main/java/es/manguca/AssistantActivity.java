@@ -16,10 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedWriter;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,6 +24,9 @@ import java.util.Scanner;
 
 import es.manguca.assistant.AddAssistantActivity;
 import es.manguca.Adapters.AssistantAdapter;
+import es.manguca.assistant.AssistantDetailActivity;
+import es.manguca.assistant.EditAssistantActivity;
+import es.manguca.classes.Person;
 
 public class AssistantActivity extends AppCompatActivity implements AssistantAdapter.ItemClickListener{
 

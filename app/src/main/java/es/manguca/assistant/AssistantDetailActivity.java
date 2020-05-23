@@ -1,4 +1,4 @@
-package es.manguca;
+package es.manguca.assistant;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import es.manguca.R;
 import es.manguca.Utils.LetterImageView;
 
 public class AssistantDetailActivity extends AppCompatActivity {

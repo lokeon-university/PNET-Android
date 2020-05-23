@@ -1,4 +1,4 @@
-package es.manguca;
+package es.manguca.assistant;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -26,7 +26,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import es.manguca.assistant.AddAssistantActivity;
+import es.manguca.AssistantActivity;
+import es.manguca.ImportantDatesActivity;
+import es.manguca.LocationActivity;
+import es.manguca.MainActivity;
+import es.manguca.ProgramActivity;
+import es.manguca.R;
 
 public class EditAssistantActivity extends AppCompatActivity {
     private EditText txtNombre;

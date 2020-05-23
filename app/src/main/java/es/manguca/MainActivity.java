@@ -22,7 +22,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private ListView listViewArtist, listViewActivities;
-    private CardView title2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

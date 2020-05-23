@@ -28,8 +28,8 @@ import es.manguca.Utils.LetterImageView;
 
 public class ProgramActivity extends AppCompatActivity {
     private ListView listView;
-    public static SharedPreferences sharedPreferences;
-    public static String SEL_DAY;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -242,7 +242,7 @@ public class ProgramActivity extends AppCompatActivity {
         }
 
     }
-    }
+}
 
 
 

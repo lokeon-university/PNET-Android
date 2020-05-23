@@ -1,4 +1,4 @@
-package es.manguca;
+package es.manguca.classes;
 
 public class Person {
 
