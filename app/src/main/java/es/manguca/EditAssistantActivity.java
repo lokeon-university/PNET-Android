@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -77,6 +79,14 @@ public class EditAssistantActivity extends AppCompatActivity {
         txtTlf.setText(bundle.getString("phone"));
         txtBirth.setText(bundle.getString("birth"));
         txtIns.setText(bundle.getString("insDate"));
+
+        txtNombre.addTextChangedListener(textWatcher);
+        txtApellidos.addTextChangedListener(textWatcher);
+        txtEmail.addTextChangedListener(textWatcher);
+        txtDni.addTextChangedListener(textWatcher);
+        txtTlf.addTextChangedListener(textWatcher);
+        txtBirth.addTextChangedListener(textWatcher);
+        txtIns.addTextChangedListener(textWatcher);
 
         Button btn_home = (Button)findViewById(R.id.button_home);
         Button btn_schedule = (Button)findViewById(R.id.button_schedule);
@@ -176,6 +186,35 @@ public class EditAssistantActivity extends AppCompatActivity {
             }
         });
     }
+
+    // Para mirar que los inputs esten filled
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            String name = txtNombre.getText().toString().trim();
+            String surname = txtApellidos.getText().toString().trim();
+            String email = txtEmail.getText().toString().trim();
+            String telephone = txtTlf.getText().toString().trim();
+            String dni = txtDni.getText().toString().trim();
+            String birthday = txtBirth.getText().toString().trim();
+            String date_inscription = txtIns.getText().toString().trim();
+
+            btn_aceptar.setEnabled(!name.isEmpty() && !surname.isEmpty() && !email.isEmpty() &&
+                    !telephone.isEmpty() && !dni.isEmpty() && !birthday.isEmpty() &&
+                    !date_inscription.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 
     class PutAssistant extends AsyncTask<String,Void,String> {
 

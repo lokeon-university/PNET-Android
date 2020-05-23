@@ -47,7 +47,6 @@ public class ProgramActivity extends AppCompatActivity {
         setSupportActionBar(top_toolbar);
         getSupportActionBar().setTitle(R.string.program);
 
-        ////
 
         Button btn_home = (Button)findViewById(R.id.button_home);
         Button btn_schedule = (Button)findViewById(R.id.button_schedule);
@@ -141,49 +140,9 @@ public class ProgramActivity extends AppCompatActivity {
 
     private void setupListView(int day){
 
-
         SimpleAdapter adapter = new SimpleAdapter(this, day);
 
         listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
-                    case 0: {
-                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
-                        sharedPreferences.edit().putString(SEL_DAY, "Monday").apply();
-                        break;
-                    }
-                    case 1: {
-                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
-                        sharedPreferences.edit().putString(SEL_DAY, "Tuesday").apply();
-                        break;
-                    }
-                    case 2: {
-                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
-                        sharedPreferences.edit().putString(SEL_DAY, "Wednesday").apply();
-                        break;
-                    }
-                    case 3: {
-                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
-                        sharedPreferences.edit().putString(SEL_DAY, "Thursday").apply();
-                        break;
-                    }
-                    case 4: {
-                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
-                        sharedPreferences.edit().putString(SEL_DAY, "Friday").apply();
-                        break;
-                    }
-                    case 5: {
-                        //startActivity(new Intent(WeekActivity.this, DayDetail.class));
-                        sharedPreferences.edit().putString(SEL_DAY, "Saturday").apply();
-                        break;
-                    }
-                    default:break;
-                }
-            }
-        });
 
     }
 

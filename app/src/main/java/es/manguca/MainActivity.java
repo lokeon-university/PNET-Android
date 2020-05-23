@@ -9,11 +9,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +18,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import es.manguca.Utils.LetterImageView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -123,27 +119,6 @@ public class MainActivity extends AppCompatActivity {
         ArtistAdapter artistAdapter = new ArtistAdapter(this, titleArray, roleArray);
 
         listViewArtist.setAdapter(artistAdapter);
-        listViewArtist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
-                    case 0: {
-                        //Intent intent = new Intent(ProgramActivity.this, WeekActivity.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    case 1: {
-                        break;
-                    }
-                    case 2: {
-                        break;
-                    }
-                    case 3: {
-                        break;
-                    }
-                }
-            }
-        });
     }
 
     private void setupListViewActivities(){
@@ -152,27 +127,6 @@ public class MainActivity extends AppCompatActivity {
         ActivitiesAdapter activitiesAdapter = new ActivitiesAdapter(this, titleArray, roleArray);
 
         listViewActivities.setAdapter(activitiesAdapter);
-        listViewActivities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
-                    case 0: {
-                        //Intent intent = new Intent(ProgramActivity.this, WeekActivity.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    case 1: {
-                        break;
-                    }
-                    case 2: {
-                        break;
-                    }
-                    case 3: {
-                        break;
-                    }
-                }
-            }
-        });
     }
 
 
@@ -233,8 +187,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-
-
             return convertView;
 
         }
@@ -283,13 +235,10 @@ public class MainActivity extends AppCompatActivity {
             title = (TextView)convertView.findViewById(R.id.tvTitle);
             role = (TextView)convertView.findViewById(R.id.tvRole_main);
             imageView = (ImageView)convertView.findViewById(R.id.ivImage);
-            System.out.println("position:" + position);
-            System.out.println(titleArray[position]);
 
             title.setText(titleArray[position]);
-            System.out.println("position2:" + position);
             role.setText(roleArray[position]);
-            System.out.println(roleArray[position]);
+
             switch(position){
                 case 0:
                     imageView.setImageResource(R.drawable.act1);

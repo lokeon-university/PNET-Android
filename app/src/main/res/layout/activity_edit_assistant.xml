@@ -122,9 +122,9 @@
                 android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/whiteSmoke"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/whiteSmoke"
                 android:background="@drawable/rounded_button"
+                android:enabled="false"
                 android:text="@string/aceptar" />
 
 
