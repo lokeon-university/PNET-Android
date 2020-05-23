@@ -32,7 +32,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 ></TextView>
 
             <TextView
@@ -51,7 +51,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 ></TextView>
 
             <fragment

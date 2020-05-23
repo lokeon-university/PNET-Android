@@ -137,6 +137,7 @@ fabric.properties
 
 google_maps_api*
 ip_node*
+google-services*
 
 # dependencies
 /node/node_modules
