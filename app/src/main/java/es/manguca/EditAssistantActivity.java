@@ -1,18 +1,20 @@
-package es.manguca.assistant;
+package es.manguca;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import org.json.JSONObject;
+
 import java.io.BufferedWriter;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -22,14 +24,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import es.manguca.AssistantActivity;
-import es.manguca.ImportantDatesActivity;
-import es.manguca.LocationActivity;
-import es.manguca.MainActivity;
-import es.manguca.ProgramActivity;
-import es.manguca.R;
+import es.manguca.assistant.AddAssistantActivity;
 
-public class AddAssistantActivity extends AppCompatActivity {
+public class EditAssistantActivity extends AppCompatActivity {
     private EditText txtNombre;
     private EditText txtApellidos;
     private EditText txtEmail;
@@ -42,7 +39,9 @@ public class AddAssistantActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_assistant);
+        setContentView(R.layout.activity_edit_assistant);
+
+        final Bundle bundle = this.getIntent().getExtras();
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
         setSupportActionBar(bottom_toolbar);
@@ -52,13 +51,13 @@ public class AddAssistantActivity extends AppCompatActivity {
 
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
-        getSupportActionBar().setTitle(R.string.add_assistant);
+        getSupportActionBar().setTitle(R.string.edit_assitant);
         top_toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
 
         top_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAssistantActivity.this, AssistantActivity.class));
+                startActivity(new Intent(EditAssistantActivity.this, AssistantActivity.class));
             }
         });
 
@@ -71,6 +70,14 @@ public class AddAssistantActivity extends AppCompatActivity {
         txtIns = (EditText) findViewById(R.id.fechaIns);
         btn_aceptar = (Button) findViewById(R.id.BtnAceptar);
 
+        txtNombre.setText(bundle.getString("name"));
+        txtApellidos.setText(bundle.getString("lastname"));
+        txtDni.setText(bundle.getString("DNI"));
+        txtEmail.setText(bundle.getString("email"));
+        txtTlf.setText(bundle.getString("phone"));
+        txtBirth.setText(bundle.getString("birth"));
+        txtIns.setText(bundle.getString("insDate"));
+
         Button btn_home = (Button)findViewById(R.id.button_home);
         Button btn_schedule = (Button)findViewById(R.id.button_schedule);
         Button btn_assistant = (Button)findViewById(R.id.button_assistant);
@@ -81,42 +88,43 @@ public class AddAssistantActivity extends AppCompatActivity {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAssistantActivity.this, MainActivity.class));
+                startActivity(new Intent(EditAssistantActivity.this, MainActivity.class));
             }
         });
 
         btn_schedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAssistantActivity.this, ProgramActivity.class));
+                startActivity(new Intent(EditAssistantActivity.this, ProgramActivity.class));
             }
         });
 
         btn_assistant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAssistantActivity.this, AssistantActivity.class));
+                startActivity(new Intent(EditAssistantActivity.this, AssistantActivity.class));
             }
         });
 
         btn_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAssistantActivity.this, LocationActivity.class));
+                startActivity(new Intent(EditAssistantActivity.this, LocationActivity.class));
             }
         });
 
         btn_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddAssistantActivity.this, ImportantDatesActivity.class));
+                startActivity(new Intent(EditAssistantActivity.this, ImportantDatesActivity.class));
             }
         });
 
        btn_aceptar.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               new PostAssistant().execute();
+               new PutAssistant().execute(bundle.getString("id"));
+
            }
        });
 
@@ -153,7 +161,7 @@ public class AddAssistantActivity extends AppCompatActivity {
         txtBirth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(AddAssistantActivity.this, date_birth, calendar
+                new DatePickerDialog(EditAssistantActivity.this, date_birth, calendar
                         .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                         calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
@@ -162,15 +170,14 @@ public class AddAssistantActivity extends AppCompatActivity {
         txtIns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(AddAssistantActivity.this, date_ins, calendar
+                new DatePickerDialog(EditAssistantActivity.this, date_ins, calendar
                         .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                         calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
     }
 
-
-    class PostAssistant extends AsyncTask<Void,Void,String> {
+    class PutAssistant extends AsyncTask<String,Void,String> {
 
         private String name;
         private String surname;
@@ -194,7 +201,7 @@ public class AddAssistantActivity extends AppCompatActivity {
         }
 
         @Override
-        protected String doInBackground(Void... strings) {
+        protected String doInBackground(String... strings) {
             String text = null;
             BufferedWriter bufferedWriter = null;
             HttpURLConnection urlConnection = null;
@@ -210,11 +217,11 @@ public class AddAssistantActivity extends AppCompatActivity {
                 dataToSend.put("birthday",birthday);
                 dataToSend.put("date_insription", date_inscription);
 
-                URL url = new URL(getResources().getString(R.string.ip_node));
+                URL url = new URL(getResources().getString(R.string.ip_node) + "/" + strings[0]);
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setReadTimeout(10000);
                 urlConnection.setConnectTimeout(10000);
-                urlConnection.setRequestMethod("POST");
+                urlConnection.setRequestMethod("PUT");
                 urlConnection.setDoOutput(true);
                 urlConnection.setRequestProperty("Content-Type", "application/json");
                 urlConnection.connect();
@@ -225,9 +232,9 @@ public class AddAssistantActivity extends AppCompatActivity {
                 bufferedWriter.flush();
 
                 if (urlConnection.getResponseCode() == 200) {
-                    text = "Post successfully !";
+                    text = "Update successfully !";
                 } else {
-                    text =  "Post failed !";
+                    text =  "Update failed !";
                 }
 
             } catch (Exception e ) {
@@ -240,16 +247,10 @@ public class AddAssistantActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(String results) {
-            super.onPostExecute(results);
-            Toast.makeText(AddAssistantActivity.this, "El asistente ha sido añadido", Toast.LENGTH_SHORT).show();
-            txtNombre.setText("");
-            txtApellidos.setText("");
-            txtEmail.setText("");
-            txtTlf.setText("");
-            txtDni.setText("");
-            txtBirth.setText("");
-            txtIns.setText("");
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Toast.makeText(EditAssistantActivity.this, "El asistente ha sido editado", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(EditAssistantActivity.this, AssistantActivity.class));
         }
     }
 

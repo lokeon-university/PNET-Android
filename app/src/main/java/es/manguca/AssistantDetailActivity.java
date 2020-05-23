@@ -15,10 +15,12 @@ public class AssistantDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle bundle = this.getIntent().getExtras();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assistant_detail);
-        String yourDataObject = null;
+
+        Bundle bundle = this.getIntent().getExtras();
+
         tname = (TextView) findViewById(R.id.NameAssistant);
         tlastname = (TextView) findViewById(R.id.LastNameAssistant);
         tdni = (TextView) findViewById(R.id.DniAssistant);
@@ -35,8 +37,5 @@ public class AssistantDetailActivity extends AppCompatActivity {
         tphone.setText(bundle.getString("phone"));
         tbirth.setText(bundle.getString("birth"));
         tinsDate.setText(bundle.getString("insDate"));
-
-
-
     }
 }
