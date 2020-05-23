@@ -23,92 +23,59 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
+            android:padding="60dp"
             >
-
-            <TextView
-                android:id="@+id/LblNombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nombre" />
 
             <EditText
                 android:id="@+id/TxtNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/nombre"
                 android:inputType="text" />
-
-            <TextView
-                android:id="@+id/LblApellido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/apellido" />
 
             <EditText
                 android:id="@+id/TxtApellido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/apellido"
                 android:inputType="text" />
-
-            <TextView
-                android:id="@+id/LblEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email" />
 
             <EditText
                 android:id="@+id/TxtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/email"
                 android:inputType="text" />
-
-            <TextView
-                android:id="@+id/LblTlf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/telefono" />
 
             <EditText
                 android:id="@+id/TxtTlf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/telefono"
                 android:inputType="text" />
-
-            <TextView
-                android:id="@+id/LblDni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dni" />
 
             <EditText
                 android:id="@+id/TxtDni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/dni"
                 android:inputType="text" />
-
-            <TextView
-                android:id="@+id/LblBirtd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fechaNac" />
 
             <EditText
                 android:id="@+id/DateNac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/fechaNac"
                 android:inputType="date"
                 android:focusable="false"
                 android:clickable="true"
                 android:maxLines="1" />
 
-            <TextView
-                android:id="@+id/LblIns"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fechaIns" />
-
             <EditText
                 android:id="@+id/fechaIns"
+                android:hint="@string/fechaIns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -118,9 +85,13 @@
 
             <Button
                 android:id="@+id/BtnAceptar"
+                android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/aceptar" />
+                android:textColor="@color/whiteSmoke"
+                android:backgroundTint="@color/gray"
+                android:background="@drawable/rounded_button"
+                android:text="@string/añadir" />
 
         </LinearLayout>
 

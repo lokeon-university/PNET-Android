@@ -26,6 +26,7 @@
     <string name="fechaIns">Fecha de Inscripción</string>
     <string name="fechaNac">Fecha de Nacimiento</string>
     <string name="aceptar">Aceptar </string>
+    <string name="añadir">Añadir </string>
 
     <string-array name="title_main">
         <item>Voces de Overwatch</item>
