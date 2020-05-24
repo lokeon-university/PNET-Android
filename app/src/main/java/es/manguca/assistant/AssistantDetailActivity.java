@@ -1,14 +1,19 @@
 package es.manguca.assistant;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
 import es.manguca.R;
 import es.manguca.Utils.LetterImageView;
+
 
 public class AssistantDetailActivity extends AppCompatActivity {
     private TextView tname, tlastname, tdni, temail, tphone, tbirth, tinsDate;
@@ -20,8 +25,6 @@ public class AssistantDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assistant_detail);
 
-        Bundle bundle = this.getIntent().getExtras();
-
         tname = (TextView) findViewById(R.id.NameAssistant);
         tlastname = (TextView) findViewById(R.id.LastNameAssistant);
         tdni = (TextView) findViewById(R.id.DniAssistant);
@@ -31,12 +34,61 @@ public class AssistantDetailActivity extends AppCompatActivity {
         tinsDate = (TextView) findViewById(R.id.InsDateAssistant);
         ivLogo = (LetterImageView)findViewById(R.id.iconAssistants);
 
-        tname.setText(bundle.getString("name"));
-        tlastname.setText(bundle.getString("lastname"));
-        tdni.setText(bundle.getString("DNI"));
-        temail.setText(bundle.getString("email"));
-        tphone.setText(bundle.getString("phone"));
-        tbirth.setText(bundle.getString("birth"));
-        tinsDate.setText(bundle.getString("insDate"));
+
+        Bundle bundle = this.getIntent().getExtras();
+
+        new GetOneAssistant().execute(bundle.getString("id"));
+    }
+
+    class GetOneAssistant extends AsyncTask<String,Void,String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String text = null;
+            HttpURLConnection urlConnection = null;
+
+            try {
+                URL url = new URL(getResources().getString(R.string.ip_node) + "/" + strings[0]);
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setReadTimeout(10000);
+                urlConnection.setConnectTimeout(10000);
+                urlConnection.setRequestMethod("GET");
+                urlConnection.setRequestProperty("Content-Type", "application/json");
+                urlConnection.connect();
+
+                InputStream inputStream = urlConnection.getInputStream();
+                text = new Scanner(inputStream).useDelimiter("\\A").next();
+
+            } catch (Exception e ) {
+                return e.toString();
+            } finally {
+                if(urlConnection != null)
+                    urlConnection.disconnect();
+            }
+            return text;
+        }
+
+        @Override
+        protected void onPostExecute(String results) {
+            super.onPostExecute(results);
+
+            if(results!= null) {
+                JSONArray jsonArray = null;
+                try {
+                    jsonArray = new JSONArray(results);
+                    JSONObject jsonobject = jsonArray.getJSONObject(0);
+
+                    tname.setText(jsonobject.getString("name"));
+                    tlastname.setText(jsonobject.getString("surname"));
+                    tdni.setText(jsonobject.getString("dni"));
+                    temail.setText(jsonobject.getString("email"));
+                    tphone.setText(jsonobject.getString("telephone"));
+                    tbirth.setText(jsonobject.getString("birthday"));
+                    tinsDate.setText(jsonobject.getString("date_inscription"));
+
+                } catch (JSONException e) {
+                    e.printStackTrace();}
+            }
+        }
     }
 }

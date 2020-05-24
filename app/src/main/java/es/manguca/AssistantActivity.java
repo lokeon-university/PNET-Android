@@ -103,20 +103,14 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
             }
         });
 
-        new GetAssistant().execute();
+        new GetAllAssistants().execute();
 
     }
 
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(this, AssistantDetailActivity.class);
-        bundle.putString("name", adapter.getItem(position).getName());
-        bundle.putString("lastname", adapter.getItem(position).getLastname());
-        bundle.putString("email", adapter.getItem(position).getEmail());
-        bundle.putString("phone", adapter.getItem(position).getPhone());
-        bundle.putString("DNI", adapter.getItem(position).getDni());
-        bundle.putString("birth", adapter.getItem(position).getBirth());
-        bundle.putString("insDate",adapter.getItem(position).getInsDate());
+        bundle.putString("id", adapter.getItem(position).getId());
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -144,7 +138,7 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
         startActivity(intent);
     }
 
-    class GetAssistant extends AsyncTask<Void,Void,String> {
+    class GetAllAssistants extends AsyncTask<Void,Void,String> {
 
         @Override
         protected String doInBackground(Void... strings) {

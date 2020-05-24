@@ -54,17 +54,6 @@ router.delete("/:_id", function (req, res) {
   });
 });
 
-// Delete all Activities
-router.delete("/", function (req, res) {
-  activityService.removeAll((err) => {
-    if (err) {
-      res.status(500).send({ msg: err });
-    } else {
-      res.status(200).send({ msg: "Assitant deleted!" });
-    }
-  });
-});
-
 // Update Activity with id
 router.put("/:_id", function (req, res) {
   const _id = req.params._id;
