@@ -4,24 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import es.manguca.assistant.AddAssistantActivity;
 import es.manguca.Adapters.AssistantAdapter;
 import es.manguca.assistant.AssistantDetailActivity;
@@ -59,7 +59,7 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
         Button btn_assistant = (Button)findViewById(R.id.button_assistant);
         Button btn_location = (Button)findViewById(R.id.button_location);
         Button btn_date = (Button)findViewById(R.id.button_date);
-        Button btn_add_assistant = (Button) findViewById(R.id.button_add_assistant);
+        FloatingActionButton btn_add_assistant = (FloatingActionButton) findViewById(R.id.button_add_assistant);
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
