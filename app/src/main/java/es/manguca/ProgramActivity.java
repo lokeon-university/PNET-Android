@@ -126,6 +126,14 @@ public class ProgramActivity extends AppCompatActivity {
             }
         });
 
+        final Button btn_createPDF = (Button) findViewById(R.id.create_pdf);
+        btn_createPDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 
 
@@ -136,6 +144,7 @@ public class ProgramActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+
 
     public class SimpleAdapter extends BaseAdapter {
         private LetterImageView ivLogo;

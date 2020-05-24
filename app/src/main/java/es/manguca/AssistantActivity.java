@@ -1,9 +1,12 @@
 package es.manguca;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -118,8 +121,8 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
     @Override
     public void onDeleteClick(View v, int position)
     {
-        String id_person = adapter.getItem(position).getId();
-        new DeleteAssistant().execute(id_person);
+        AlertDialog diaBox = deleteConfirmation(position);
+        diaBox.show();
     }
 
     @Override
@@ -197,6 +200,29 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
                     e.printStackTrace();}
             }
         }
+    }
+
+    private AlertDialog deleteConfirmation(final int position)
+    {
+        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
+                .setTitle("Eliminar")
+                .setMessage("¿Está seguro/a de eliminar este asistente?")
+                .setIcon(R.drawable.ic_delete)
+                .setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String id_person = adapter.getItem(position).getId();
+                        new DeleteAssistant().execute(id_person);
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        return myQuittingDialogBox;
     }
 
     class DeleteAssistant extends AsyncTask<String,Void,String> {
