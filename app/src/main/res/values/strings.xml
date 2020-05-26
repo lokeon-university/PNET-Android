@@ -36,7 +36,7 @@
     <string name="cancelar_confir">Cancelar"</string>
     <string name="title_notif">Añadir titulo</string>
     <string name="message_notif">Aádir notificacion</string>
-    <string name="snack_notif">Aqui hay que hacer una resta de fechas</string>
+    <string name="snack_notif">Este evento ha pasado hace </string>
     <string name="past_date">Aqui decir que las fechas han pasado</string>
     <string name="marker_map">Manguca festival</string>
     <string name="post_success">Post successfully!</string>
@@ -185,14 +185,7 @@
         <item>20:00-21:30</item>
         <item>20:00-22:00</item>
     </string-array>
-    <string-array name="Week">
-        <item> Monday </item>
-        <item> Tuesday </item>
-        <item> Wednesday </item>
-        <item> Thursday </item>
-        <item> Friday </item>
-        <item> Saturday </item>
-    </string-array>
+
 
     <string-array name="roles">
         <item>Actividad</item>
@@ -255,114 +248,18 @@
         <item>Torneo</item>
         <item>Actividad</item>
     </string-array>
-    <string-array name="Monday">
-        <item>Mixed Signal Design</item>
-        <item>Analog Wave Propogation</item>
-        <item>Break</item>
-        <item>CT2 Lab - A1\nMSD Lab - A2</item>
-        <item>Break</item>
-        <item>Cluster Elective</item>
-        <item>Cluster Elective Lab/Tut</item>
-    </string-array>
 
-    <string-array name="Tuesday">
-        <item>Computer Communication Networks</item>
-        <item>Communication Theory - 2</item>
-        <item>Break</item>
-        <item>Computer Communication Networks</item>
-        <item>Mixed Signal Design</item>
-        <item>Break</item>
-        <item> CT2 Lab - A4\nMSD Lab - A1</item>
-    </string-array>
 
-    <string-array name="Wednesday">
-        <item>Antenna and Wave Propagation</item>
-        <item>Computer Communication Networks</item>
-        <item>Break</item>
-        <item>Cluster Elective</item>
-        <item>Department Elective</item>
-        <item>Break</item>
-        <item> AWP Tutorial</item>
-    </string-array>
 
-    <string-array name="Thursday">
-        <item>Antenna and Wave Propagation </item>
-        <item>Communication Theory - 2</item>
-        <item>Break</item>
-        <item>Cluster Elective</item>
-        <item>Department Elective</item>
-        <item>Break</item>
-        <item> CT2 Lab - A2\nMSD Lab - A3</item>
-    </string-array>
 
-    <string-array name="Friday">
-        <item> CT2 Lab - A3\nMSD Lab - A4</item>
-        <item>Break</item>
-        <item>Mixed Signal Design</item>
-        <item>Communication Theory - 2</item>
-        <item>Break</item>
-        <item>Department Elective Tut</item>
-    </string-array>
+   <string-array name="Title_Dates">
+       <item>Bilbao</item>
+       <item>Valencia</item>
+   </string-array>
 
-    <string-array name="Saturday">
-        <item>Self Study</item>
-        <item>Break</item>
-        <item>Self Study</item>
-    </string-array>
-
-    <string-array name="time1">
-        <item>8:55AM - 9:50AM</item>
-        <item>9:50AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 2:55PM</item>
-        <item>2:55PM - 4:45PM</item>
-    </string-array>
-
-    <string-array name="time2">
-        <item>8:55AM - 9:50AM</item>
-        <item>9:50AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 12:10PM</item>
-        <item>12:10PM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 3:50PM</item>
-    </string-array>
-
-    <string-array name="time3">
-        <item>8:55AM - 9:50AM</item>
-        <item>9:50AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 12:10PM</item>
-        <item>12:10PM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 3:50PM</item>
-    </string-array>
-
-    <string-array name="time4">
-        <item>8:55AM - 9:50AM</item>
-        <item>9:50AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 12:10PM</item>
-        <item>12:10PM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 3:50PM</item>
-    </string-array>
-
-    <string-array name="time5">
-        <item>8:55AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 12:10PM</item>
-        <item>12:10PM - 1:05PM</item>
-        <item>1:05PM - 2:00PM</item>
-        <item>2:00PM - 3:50PM</item>
-    </string-array>
-
-    <string-array name="time6">
-        <item>8:55AM - 10:45AM</item>
-        <item>10:45AM - 11:15AM</item>
-        <item>11:15AM - 1:05PM</item>
+    <string-array name="Date_Dates">
+        <item>25/01/2019</item>
+        <item>01/02/2022</item>
     </string-array>
 
 </resources>

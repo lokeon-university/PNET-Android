@@ -14,24 +14,44 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RemoteViews;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import es.manguca.Utils.LetterImageView;
+
 
 public class ImportantDatesActivity extends AppCompatActivity {
+    private ListView listView;
+    private String[] sDates;
+    private String[] sTitles;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_important_dates);
+        sDates = getResources().getStringArray(R.array.Date_Dates);
+        sTitles = getResources().getStringArray(R.array.Title_Dates);
 
-        Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
+        listView = (ListView)findViewById(R.id.lvMainDates);
+        setupListView();
+
+        Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbarDates);
         setSupportActionBar(bottom_toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         bottom_toolbar.setTitle("");
@@ -46,8 +66,7 @@ public class ImportantDatesActivity extends AppCompatActivity {
         Button btn_assistant = (Button)findViewById(R.id.button_assistant);
         Button btn_location = (Button)findViewById(R.id.button_location);
         Button btn_date = (Button)findViewById(R.id.button_date);
-        Button btn_notification = (Button) findViewById(R.id.notifi_date);
-        Button btn_past_date = (Button) findViewById(R.id.past_date);
+
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,26 +104,54 @@ public class ImportantDatesActivity extends AppCompatActivity {
         });
 
 
-        btn_notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showNotification(getResources().getString(R.string.title_notif),getResources().getString(R.string.message_notif));
-                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.important_dates);
-                Snackbar snackbar = Snackbar
-                        .make(linearLayout, R.string.snack_notif, Snackbar.LENGTH_LONG);
 
-                snackbar.show();
+
+
+    }
+
+    private void setupListView(){
+
+        ImportantDatesActivity.SimpleAdapter adapter = new ImportantDatesActivity.SimpleAdapter(this);
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Date date= null;
+                SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    date = myFormat.parse(sDates[position]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+                Date today = new Date();
+                long difference = 0;
+
+                if (date.before(today)){
+                    difference = ((today.getTime() -date.getTime())/(1000*60*60*24));
+                    Toast.makeText(ImportantDatesActivity.this, "Han pasado " + difference + " días desde este evento", Toast.LENGTH_SHORT).show();
+
+                }
+                /*else if (date ==today){
+
+                }*/
+                else{
+                    difference = ((date.getTime() -today.getTime())/(1000*60*60*24));
+
+                    showNotification(getResources().getString(R.string.title_notif),getResources().getString(R.string.message_notif));
+                    LinearLayout linearLayout = (LinearLayout) findViewById(R.id.important_dates);
+                    Snackbar snackbar = Snackbar
+                            .make(linearLayout, "Quedan " + difference + " días para este evento", Snackbar.LENGTH_LONG);
+
+                    snackbar.show();
+                }
+
+
             }
         });
-
-
-        btn_past_date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ImportantDatesActivity.this, R.string.past_date, Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
     }
 
@@ -148,5 +195,81 @@ public class ImportantDatesActivity extends AppCompatActivity {
         }
 
         notificationManager.notify(0,builder.build());
+    }
+
+    public class SimpleAdapter extends BaseAdapter {
+        private LetterImageView ivLogo;
+        private Context mContext;
+        private LayoutInflater layoutInflater;
+        private TextView title, date;
+
+
+        public SimpleAdapter(Context context) {
+            mContext = context;
+            layoutInflater = LayoutInflater.from(context);
+
+        }
+
+
+        @Override
+        public int getCount() {
+            return sTitles.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return sTitles[position];
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = layoutInflater.inflate(R.layout.activitiy_import_dates_single_item, null);
+            }
+
+            title = (TextView) convertView.findViewById(R.id.tvMainDates);
+            date = (TextView) convertView.findViewById(R.id.tvDate);
+            ivLogo = (LetterImageView) convertView.findViewById(R.id.ivLetterDates);
+
+
+            title.setText(sTitles[position]);
+            date.setText(sDates[position]);
+            ivLogo.setOval(true);
+            ivLogo.setLetter(sTitles[position].charAt(0));
+            letterBackground(sTitles[position], ivLogo);
+
+            return convertView;
+
+        }
+
+        void letterBackground(String manguca, LetterImageView ivLogo) {
+            switch (manguca) {
+                case "Bilbao":
+                    ivLogo.setBackgroundColorLetter(0);
+                    break;
+                case "Valencia":
+                    ivLogo.setBackgroundColorLetter(1);
+                    break;
+                case "Madrid":
+                    ivLogo.setBackgroundColorLetter(2);
+                    break;
+                case "Cádiz":
+                    ivLogo.setBackgroundColorLetter(3);
+                    break;
+                case "Sevilla":
+                    ivLogo.setBackgroundColorLetter(4);
+                    break;
+                case "Galicia":
+                    ivLogo.setBackgroundColorLetter(5);
+                    break;
+
+            }
+        }
+
     }
 }

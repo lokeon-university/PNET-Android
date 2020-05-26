@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/important_dates"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ImportantDatesActivity"
+    android:id="@+id/important_dates"
+    tools:context=".ProgramActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,30 +14,28 @@
         <include
             android:id="@+id/top_toolbar"
             layout="@layout/toolbar_top"></include>
+
     </LinearLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:id="@+id/lvMainDates_layout"
             >
-            <Button
-                android:id="@+id/past_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="probar toast">
-            </Button>
-            <Button
-                android:id="@+id/notifi_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="probar notificacion">
-            </Button>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="10dp"
+                android:id="@+id/lvMainDates"
+                android:paddingBottom="?actionBarSize"
+                >
+            </ListView>
 
         </LinearLayout>
 
@@ -45,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <include
-                android:id="@+id/bottom_toolbar"
+                android:id="@+id/bottom_toolbarDates"
                 layout="@layout/toolbar_bottom"></include>
         </LinearLayout>
 

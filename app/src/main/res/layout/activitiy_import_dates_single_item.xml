@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:background="@color/colorAccent"
+    android:id="@+id/program_single_item"
+    android:elevation="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+
+        <es.manguca.Utils.LetterImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/ivLetterDates"
+            android:layout_margin="8dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvMainDates"
+            android:text="Program"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_below="@+id/tvRole_main"
+            android:layout_toRightOf="@+id/ivLetterDates"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvDate"
+            android:text="Date"
+            android:layout_below="@+id/tvMainDates"
+            android:layout_toRightOf="@+id/ivLetterDates"
+            android:textSize="16dp"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
