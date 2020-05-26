@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,10 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 import es.manguca.Utils.LetterImageView;
 
@@ -37,6 +43,22 @@ public class ProgramActivity extends AppCompatActivity {
         Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
         setSupportActionBar(top_toolbar);
         getSupportActionBar().setTitle(R.string.program);
+
+        // Meter boton para no hacer nuevo toolbar
+        Button btn_pdf = new Button(this);
+        btn_pdf.setBackgroundResource(R.drawable.ic_pdf);
+        Toolbar.LayoutParams lyt_prm = new Toolbar.LayoutParams(90, 90, Gravity.END);
+        lyt_prm.setMarginEnd(20);
+        btn_pdf.setLayoutParams(lyt_prm);
+        top_toolbar.addView(btn_pdf);
+
+        btn_pdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProgramActivity.this, R.string.delete_assitant, Toast.LENGTH_SHORT).show();
+                
+            }
+        });
 
 
         Button btn_home = (Button)findViewById(R.id.button_home);
@@ -126,16 +148,7 @@ public class ProgramActivity extends AppCompatActivity {
             }
         });
 
-        final Button btn_createPDF = (Button) findViewById(R.id.create_pdf);
-        btn_createPDF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
     }
-
 
     private void setupListView(int day){
 

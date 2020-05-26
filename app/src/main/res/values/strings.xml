@@ -7,6 +7,7 @@
     <string name="assistant">Asistentes</string>
     <string name="add_assistant">Añadir asistentes</string>
     <string name="edit_assitant">Editar asistentes</string>
+    <string name="pdf_view">Ver Horarios PDF</string>
 
     <string name="appwidget_text">Programa Manguca</string>
     <string name="configure">Configuración</string>
