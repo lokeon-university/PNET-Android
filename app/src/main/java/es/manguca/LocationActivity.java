@@ -93,7 +93,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
         mMap = googleMap;
 
         LatLng manguca = new LatLng(36.5285651, -6.2110946);
-        mMap.addMarker(new MarkerOptions().position(manguca).title("Manguca festival"));
+        mMap.addMarker(new MarkerOptions().position(manguca).title(getResources().getString(R.string.marker_map)));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(manguca,18));
     }
 

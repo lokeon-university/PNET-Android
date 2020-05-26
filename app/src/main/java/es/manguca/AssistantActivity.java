@@ -179,7 +179,6 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
                     jsonArray = new JSONArray(results);
                     for(int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonobject = jsonArray.getJSONObject(i);
-                        System.out.println("Name: " + jsonobject.getString("name"));
                         person.add(new Person(jsonobject.getString("_id"),
                                 jsonobject.getString("name"),
                                 jsonobject.getString("surname"),
@@ -205,10 +204,10 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
     private AlertDialog deleteConfirmation(final int position)
     {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
-                .setTitle("Eliminar")
-                .setMessage("¿Está seguro/a de eliminar este asistente?")
+                .setTitle(R.string.eliminar_confir)
+                .setMessage(R.string.mensaje_confir)
                 .setIcon(R.drawable.ic_delete)
-                .setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.eliminar_confir, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String id_person = adapter.getItem(position).getId();
@@ -216,7 +215,7 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
                         dialog.dismiss();
                     }
                 })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.cancelar_confir, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
@@ -242,9 +241,9 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
                 urlConnection.connect();
 
                 if (urlConnection.getResponseCode() == 200) {
-                    text = "Delete successfully !";
+                    text = getResources().getString(R.string.delete_success);
                 } else {
-                    text = "Delete failed !";
+                    text = getResources().getString(R.string.delete_fail);
                 }
 
             } catch (Exception e) {
@@ -267,7 +266,7 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
             overridePendingTransition(0, 0);
             startActivity(intent);
 
-            Toast.makeText(AssistantActivity.this, "El asistente ha sido eliminado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AssistantActivity.this, R.string.delete_assitant, Toast.LENGTH_SHORT).show();
         }
     }
 

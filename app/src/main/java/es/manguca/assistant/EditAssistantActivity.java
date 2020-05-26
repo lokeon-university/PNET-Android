@@ -149,7 +149,7 @@ public class EditAssistantActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, monthOfYear);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String date_format = "dd/MM/yy";
+                String date_format = getResources().getString(R.string.format_date);
                 SimpleDateFormat sdf = new SimpleDateFormat(date_format, new Locale("es", "ES"));
                 txtBirth.setText(sdf.format(calendar.getTime()));
             }
@@ -163,7 +163,7 @@ public class EditAssistantActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, monthOfYear);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String date_format = "dd/MM/yy";
+                String date_format = getResources().getString(R.string.format_date);
                 SimpleDateFormat sdf = new SimpleDateFormat(date_format, new Locale("es", "ES"));
                 txtIns.setText(sdf.format(calendar.getTime()));
             }
@@ -272,9 +272,9 @@ public class EditAssistantActivity extends AppCompatActivity {
                 bufferedWriter.flush();
 
                 if (urlConnection.getResponseCode() == 200) {
-                    text = "Update successfully !";
+                    text = getResources().getString(R.string.put_success);
                 } else {
-                    text =  "Update failed !";
+                    text = getResources().getString(R.string.put_fail);
                 }
 
             } catch (Exception e ) {
@@ -289,7 +289,7 @@ public class EditAssistantActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Toast.makeText(EditAssistantActivity.this, "El asistente ha sido editado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditAssistantActivity.this, R.string.put_assitant, Toast.LENGTH_SHORT).show();
             startActivity(new Intent(EditAssistantActivity.this, AssistantActivity.class));
         }
     }

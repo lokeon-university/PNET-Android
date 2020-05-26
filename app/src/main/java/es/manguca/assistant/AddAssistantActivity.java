@@ -139,7 +139,7 @@ public class AddAssistantActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, monthOfYear);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String date_format = "dd/MM/yy";
+                String date_format = getResources().getString(R.string.format_date);
                 SimpleDateFormat sdf = new SimpleDateFormat(date_format, new Locale("es", "ES"));
                 txtBirth.setText(sdf.format(calendar.getTime()));
             }
@@ -153,7 +153,7 @@ public class AddAssistantActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, monthOfYear);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String date_format = "dd/MM/yy";
+                String date_format = getResources().getString(R.string.format_date);;
                 SimpleDateFormat sdf = new SimpleDateFormat(date_format, new Locale("es", "ES"));
                 txtIns.setText(sdf.format(calendar.getTime()));
             }
@@ -263,9 +263,9 @@ public class AddAssistantActivity extends AppCompatActivity {
                 bufferedWriter.flush();
 
                 if (urlConnection.getResponseCode() == 200) {
-                    text = "Post successfully !";
+                    text = getResources().getString(R.string.post_success);
                 } else {
-                    text =  "Post failed !";
+                    text = getResources().getString(R.string.post_fail);
                 }
 
             } catch (Exception e ) {
@@ -280,7 +280,7 @@ public class AddAssistantActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String results) {
             super.onPostExecute(results);
-            Toast.makeText(AddAssistantActivity.this, "El asistente ha sido añadido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(AddAssistantActivity.this, R.string.added_assistant, Toast.LENGTH_SHORT).show();
             txtNombre.setText("");
             txtApellidos.setText("");
             txtEmail.setText("");

@@ -2,6 +2,7 @@ package es.manguca;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.NotificationCompat;
 
 import android.app.NotificationChannel;
@@ -15,7 +16,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RemoteViews;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class ImportantDatesActivity extends AppCompatActivity {
@@ -41,7 +46,8 @@ public class ImportantDatesActivity extends AppCompatActivity {
         Button btn_assistant = (Button)findViewById(R.id.button_assistant);
         Button btn_location = (Button)findViewById(R.id.button_location);
         Button btn_date = (Button)findViewById(R.id.button_date);
-        Button btn_notification = (Button) findViewById(R.id.not);
+        Button btn_notification = (Button) findViewById(R.id.notifi_date);
+        Button btn_past_date = (Button) findViewById(R.id.past_date);
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,9 +88,24 @@ public class ImportantDatesActivity extends AppCompatActivity {
         btn_notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showNotification("aaaaaaa","eeeeeee");
+                showNotification(getResources().getString(R.string.title_notif),getResources().getString(R.string.message_notif));
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.important_dates);
+                Snackbar snackbar = Snackbar
+                        .make(linearLayout, R.string.snack_notif, Snackbar.LENGTH_LONG);
+
+                snackbar.show();
             }
         });
+
+
+        btn_past_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ImportantDatesActivity.this, R.string.past_date, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     private RemoteViews getCustomDesign(String title, String message) {

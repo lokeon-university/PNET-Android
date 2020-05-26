@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/important_dates"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".ImportantDatesActivity"
@@ -26,10 +27,16 @@
             android:orientation="vertical"
             >
             <Button
-                android:id="@+id/not"
+                android:id="@+id/past_date"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                android:text="probar toast">
+            </Button>
+            <Button
+                android:id="@+id/notifi_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="probar notificacion">
             </Button>
 
         </LinearLayout>

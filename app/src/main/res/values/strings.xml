@@ -25,8 +25,26 @@
     <string name="dni">DNI</string>
     <string name="fechaIns">Fecha de Inscripción</string>
     <string name="fechaNac">Fecha de Nacimiento</string>
+    <string name="format_date">dd/MM/yy</string>
     <string name="aceptar">Aceptar </string>
     <string name="añadir">Añadir </string>
+    <string name="added_assistant">El asistente ha sido añadido</string>
+    <string name="delete_assitant">El asistente ha sido eliminado</string>
+    <string name="put_assitant">El asistente ha sido editado</string>
+    <string name="eliminar_confir">Eliminar</string>
+    <string name="mensaje_confir">¿Está seguro/a de eliminar este asistente?</string>
+    <string name="cancelar_confir">Cancelar"</string>
+    <string name="title_notif">Añadir titulo</string>
+    <string name="message_notif">Aádir notificacion</string>
+    <string name="snack_notif">Aqui hay que hacer una resta de fechas</string>
+    <string name="past_date">Aqui decir que las fechas han pasado</string>
+    <string name="marker_map">Manguca festival</string>
+    <string name="post_success">Post successfully!</string>
+    <string name="post_fail">"Post failed!</string>
+    <string name="put_success">Put successfully!</string>
+    <string name="put_fail">"Put failed!</string>
+    <string name="delete_success">Delete successfully!</string>
+    <string name="delete_fail">"Delete failed!</string>
 
     <string-array name="title_main">
         <item>Voces de Overwatch</item>
