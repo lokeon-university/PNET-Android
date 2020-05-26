@@ -145,7 +145,6 @@ public class ImportantDatesActivity extends AppCompatActivity {
             NotificationChannel notificationChannel = new NotificationChannel(channel_id,getResources().getString(R.string.channel_name),NotificationManager.IMPORTANCE_HIGH);
             notificationChannel.setSound(uri,null);
             notificationManager.createNotificationChannel(notificationChannel);
-            NotificationChannel not = new NotificationChannel()
         }
 
         notificationManager.notify(0,builder.build());
