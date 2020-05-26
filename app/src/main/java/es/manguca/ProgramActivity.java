@@ -3,6 +3,8 @@ package es.manguca;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
+
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -56,7 +58,9 @@ public class ProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ProgramActivity.this, R.string.delete_assitant, Toast.LENGTH_SHORT).show();
-                
+                //File file = new File(getResources().getResourcePackageName(R.raw.horarios_manguca));
+                //DownloadManager downloadManager = (DownloadManager) mainActivity.getSystemService(mainActivity.DOWNLOAD_SERVICE);
+               // downloadManager.addCompletedDownload(file.getName(), file.getName(), true, "pdf", file.getAbsolutePath(),file.length(),true)
             }
         });
 
