@@ -23,6 +23,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import es.manguca.Adapters.ProgramAdapter;
 import es.manguca.Utils.LetterImageView;
 
 public class ProgramActivity extends AppCompatActivity {
@@ -156,109 +157,14 @@ public class ProgramActivity extends AppCompatActivity {
 
     private void setupListView(int day){
 
-        SimpleAdapter adapter = new SimpleAdapter(this, day);
+        ProgramAdapter adapter = new ProgramAdapter(this, day);
 
         listView.setAdapter(adapter);
 
     }
 
 
-    public class SimpleAdapter extends BaseAdapter {
-        private LetterImageView ivLogo;
-        private Context mContext;
-        private LayoutInflater layoutInflater;
-        private TextView title, description, role;
-        private String[] sRoles;
-        private String[] sDescription;
-        private String[] sTitles;
 
-        public SimpleAdapter(Context context, int dia) {
-            mContext = context;
-            layoutInflater = LayoutInflater.from(context);
-            switch (dia) {
-                case 1:
-                    sRoles = getResources().getStringArray(R.array.roles);
-                    sDescription = getResources().getStringArray(R.array.Description);
-                    sTitles = getResources().getStringArray(R.array.Main);
-                    break;
-                case 2:
-                    sRoles = getResources().getStringArray(R.array.roles_day2);
-                    sDescription = getResources().getStringArray(R.array.Description_day2);
-                    sTitles = getResources().getStringArray(R.array.Main_day2);
-                    break;
-                case 3:
-                    sRoles = getResources().getStringArray(R.array.roles_day3);
-                    sDescription = getResources().getStringArray(R.array.Description_day3);
-                    sTitles = getResources().getStringArray(R.array.Main_day3);
-                    break;
-
-            }
-        }
-
-
-        @Override
-        public int getCount() {
-            return sTitles.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return sTitles[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = layoutInflater.inflate(R.layout.activity_program_single_item, null);
-            }
-
-            title = (TextView) convertView.findViewById(R.id.tvMain);
-            description = (TextView) convertView.findViewById(R.id.tvDescription);
-            role = (TextView) convertView.findViewById(R.id.tvRole_main);
-            ivLogo = (LetterImageView) convertView.findViewById(R.id.ivLetter);
-
-
-            title.setText(sTitles[position]);
-            description.setText(sDescription[position]);
-            role.setText(sRoles[position]);
-            ivLogo.setOval(true);
-            ivLogo.setLetter(sRoles[position].charAt(0));
-            roleValue(sRoles[position], ivLogo);
-
-            return convertView;
-
-        }
-
-        void roleValue(String role, LetterImageView ivLogo) {
-            switch (role) {
-                case "Taller":
-                    ivLogo.setBackgroundColorLetter(0);
-                    break;
-                case "Descanso":
-                    ivLogo.setBackgroundColorLetter(1);
-                    break;
-                case "Concierto":
-                    ivLogo.setBackgroundColorLetter(2);
-                    break;
-                case "Actividad":
-                    ivLogo.setBackgroundColorLetter(3);
-                    break;
-                case "Torneo":
-                    ivLogo.setBackgroundColorLetter(4);
-                    break;
-                case "Concurso":
-                    ivLogo.setBackgroundColorLetter(5);
-                    break;
-
-            }
-        }
-
-    }
 }
 
 
