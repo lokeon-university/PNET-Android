@@ -118,7 +118,7 @@ public class ImportantDatesActivity extends AppCompatActivity {
 
     public void showNotification(String title,String message) {
         Intent intent = new Intent(this, LocationActivity.class);
-        String channel_id = "manuguca_location_channel";
+        String channel_id = getResources().getString(R.string.channel_id);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -142,9 +142,10 @@ public class ImportantDatesActivity extends AppCompatActivity {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel notificationChannel = new NotificationChannel(channel_id,"manguca_location",NotificationManager.IMPORTANCE_HIGH);
+            NotificationChannel notificationChannel = new NotificationChannel(channel_id,getResources().getString(R.string.channel_name),NotificationManager.IMPORTANCE_HIGH);
             notificationChannel.setSound(uri,null);
             notificationManager.createNotificationChannel(notificationChannel);
+            NotificationChannel not = new NotificationChannel()
         }
 
         notificationManager.notify(0,builder.build());

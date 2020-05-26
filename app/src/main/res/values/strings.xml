@@ -45,6 +45,8 @@
     <string name="put_fail">"Put failed!</string>
     <string name="delete_success">Delete successfully!</string>
     <string name="delete_fail">"Delete failed!</string>
+    <string name="channel_id">manuguca_location_channel</string>
+    <string name="channel_name">manguca_location</string>
 
     <string-array name="title_main">
         <item>Voces de Overwatch</item>
