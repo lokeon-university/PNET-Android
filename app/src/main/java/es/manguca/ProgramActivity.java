@@ -8,6 +8,7 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Gravity;
@@ -26,15 +27,21 @@ import java.io.InputStream;
 
 import es.manguca.Adapters.ProgramAdapter;
 import es.manguca.Utils.LetterImageView;
+import es.manguca.Utils.PermissionUtils;
 
 public class ProgramActivity extends AppCompatActivity {
     private ListView listView;
+    PermissionUtils permissionUtils;
+    private static final int STORAGE_PERMISSION_REQUEST_CODE = 1;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program);
+        permissionUtils = new PermissionUtils();
+
+
         listView = (ListView)findViewById(R.id.lvMain);
         setupListView(1);
 
@@ -55,19 +62,23 @@ public class ProgramActivity extends AppCompatActivity {
         lyt_prm.setMarginEnd(20);
         btn_pdf.setLayoutParams(lyt_prm);
         top_toolbar.addView(btn_pdf);
-
+        final String route = "https://drive.google.com/file/d/1Jv5s8GKG_PYGIl0pngXgAwIRFdXHQ6mi/view?usp=sharing";
         btn_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(ProgramActivity.this, R.string.delete_assitant, Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                if (permissionUtils.checkPermission(ProgramActivity.this, STORAGE_PERMISSION_REQUEST_CODE, view)) {
+                    if (route.length() > 0) {
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(route)));
+                        } catch (Exception e) {
+                            e.getStackTrace();
+                        }
+                    }
 
-                String path = "android.resource://" + getPackageName() + "/" + R.raw.horarios_manguca;
-                File file = new File(path);
-                System.out.println(file.getName());
-                DownloadManager downloadmanager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-                downloadmanager.addCompletedDownload(file.getName(), file.getName(), true, "application/pdf", file.getAbsolutePath(),file.length(),true);
+                }
             }
         });
+
 
 
         Button btn_home = (Button)findViewById(R.id.button_home);
