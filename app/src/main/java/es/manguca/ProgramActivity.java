@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 
 import es.manguca.Adapters.ProgramAdapter;
 import es.manguca.Utils.LetterImageView;
@@ -59,9 +60,12 @@ public class ProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ProgramActivity.this, R.string.delete_assitant, Toast.LENGTH_SHORT).show();
-                //File file = new File(getResources().getResourcePackageName(R.raw.horarios_manguca));
-                //DownloadManager downloadManager = (DownloadManager) mainActivity.getSystemService(mainActivity.DOWNLOAD_SERVICE);
-               // downloadManager.addCompletedDownload(file.getName(), file.getName(), true, "pdf", file.getAbsolutePath(),file.length(),true)
+
+                String path = "android.resource://" + getPackageName() + "/" + R.raw.horarios_manguca;
+                File file = new File(path);
+                System.out.println(file.getName());
+                DownloadManager downloadmanager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                downloadmanager.addCompletedDownload(file.getName(), file.getName(), true, "application/pdf", file.getAbsolutePath(),file.length(),true);
             }
         });
 
