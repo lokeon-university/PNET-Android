@@ -246,7 +246,7 @@ public class AddAssistantActivity extends AppCompatActivity {
                 dataToSend.put("telephone", telephone);
                 dataToSend.put("dni",dni);
                 dataToSend.put("birthday",birthday);
-                dataToSend.put("date_insription", date_inscription);
+                dataToSend.put("date_inscription", date_inscription);
 
                 URL url = new URL(getResources().getString(R.string.ip_node));
                 urlConnection = (HttpURLConnection) url.openConnection();
