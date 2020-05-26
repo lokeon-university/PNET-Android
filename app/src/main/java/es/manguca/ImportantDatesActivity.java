@@ -32,6 +32,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import es.manguca.Adapters.ImportantDatesAdapter;
 import es.manguca.Utils.LetterImageView;
 
 
@@ -111,7 +112,7 @@ public class ImportantDatesActivity extends AppCompatActivity {
 
     private void setupListView(){
 
-        ImportantDatesActivity.SimpleAdapter adapter = new ImportantDatesActivity.SimpleAdapter(this);
+        ImportantDatesAdapter adapter = new ImportantDatesAdapter(this, sDates, sTitles);
 
         listView.setAdapter(adapter);
 
@@ -197,79 +198,5 @@ public class ImportantDatesActivity extends AppCompatActivity {
         notificationManager.notify(0,builder.build());
     }
 
-    public class SimpleAdapter extends BaseAdapter {
-        private LetterImageView ivLogo;
-        private Context mContext;
-        private LayoutInflater layoutInflater;
-        private TextView title, date;
 
-
-        public SimpleAdapter(Context context) {
-            mContext = context;
-            layoutInflater = LayoutInflater.from(context);
-
-        }
-
-
-        @Override
-        public int getCount() {
-            return sTitles.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return sTitles[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = layoutInflater.inflate(R.layout.activitiy_import_dates_single_item, null);
-            }
-
-            title = (TextView) convertView.findViewById(R.id.tvMainDates);
-            date = (TextView) convertView.findViewById(R.id.tvDate);
-            ivLogo = (LetterImageView) convertView.findViewById(R.id.ivLetterDates);
-
-
-            title.setText(sTitles[position]);
-            date.setText(sDates[position]);
-            ivLogo.setOval(true);
-            ivLogo.setLetter(sTitles[position].charAt(0));
-            letterBackground(sTitles[position], ivLogo);
-
-            return convertView;
-
-        }
-
-        void letterBackground(String manguca, LetterImageView ivLogo) {
-            switch (manguca) {
-                case "Bilbao":
-                    ivLogo.setBackgroundColorLetter(0);
-                    break;
-                case "Valencia":
-                    ivLogo.setBackgroundColorLetter(1);
-                    break;
-                case "Madrid":
-                    ivLogo.setBackgroundColorLetter(2);
-                    break;
-                case "Cádiz":
-                    ivLogo.setBackgroundColorLetter(3);
-                    break;
-                case "Sevilla":
-                    ivLogo.setBackgroundColorLetter(4);
-                    break;
-                case "Galicia":
-                    ivLogo.setBackgroundColorLetter(5);
-                    break;
-
-            }
-        }
-
-    }
 }
