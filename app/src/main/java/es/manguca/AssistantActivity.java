@@ -186,7 +186,7 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
                                 jsonobject.getString("telephone"),
                                 jsonobject.getString("dni"),
                                 jsonobject.getString("birthday"),
-                                jsonobject.getString("date_insription")));
+                                jsonobject.getString("date_inscription")));
                     }
 
                     recyclerView = findViewById(R.id.rvAssistant);
