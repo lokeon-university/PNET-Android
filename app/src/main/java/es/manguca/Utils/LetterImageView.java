@@ -6,10 +6,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+
 import androidx.appcompat.widget.AppCompatImageView;
-import es.manguca.R;
 
 import java.util.Random;
+
+import es.manguca.R;
 
 public class LetterImageView extends AppCompatImageView {
 
@@ -93,7 +95,7 @@ public class LetterImageView extends AppCompatImageView {
         return Color.parseColor(colorsArr[random.nextInt(colorsArr.length)]);
     }
 
-    public void setBackgroundColorLetter(int selected){
+    public void setBackgroundColorLetter(int selected) {
         String[] colorsArr = getResources().getStringArray(R.array.colors);
         mBackgroundPaint.setColor(Color.parseColor(colorsArr[selected]));
 

@@ -1,2 +1,2 @@
-rootProject.name='Manguca'
+rootProject.name = 'Manguca'
 include ':app'

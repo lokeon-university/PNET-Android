@@ -11,9 +11,12 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import org.json.JSONObject;
+
 import java.io.BufferedWriter;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -22,6 +25,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
 import es.manguca.AssistantActivity;
 import es.manguca.ImportantDatesActivity;
 import es.manguca.LocationActivity;
@@ -80,11 +84,11 @@ public class AddAssistantActivity extends AppCompatActivity {
         txtIns.addTextChangedListener(textWatcher);
 
 
-        Button btn_home = (Button)findViewById(R.id.button_home);
-        Button btn_schedule = (Button)findViewById(R.id.button_schedule);
-        Button btn_assistant = (Button)findViewById(R.id.button_assistant);
-        Button btn_location = (Button)findViewById(R.id.button_location);
-        Button btn_date = (Button)findViewById(R.id.button_date);
+        Button btn_home = (Button) findViewById(R.id.button_home);
+        Button btn_schedule = (Button) findViewById(R.id.button_schedule);
+        Button btn_assistant = (Button) findViewById(R.id.button_assistant);
+        Button btn_location = (Button) findViewById(R.id.button_location);
+        Button btn_date = (Button) findViewById(R.id.button_date);
 
 
         btn_home.setOnClickListener(new View.OnClickListener() {
@@ -122,12 +126,12 @@ public class AddAssistantActivity extends AppCompatActivity {
             }
         });
 
-       btn_aceptar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               new PostAssistant().execute();
-           }
-       });
+        btn_aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new PostAssistant().execute();
+            }
+        });
 
         final Calendar calendar = Calendar.getInstance();
 
@@ -153,7 +157,8 @@ public class AddAssistantActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, monthOfYear);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String date_format = getResources().getString(R.string.format_date);;
+                String date_format = getResources().getString(R.string.format_date);
+                ;
                 SimpleDateFormat sdf = new SimpleDateFormat(date_format, new Locale("es", "ES"));
                 txtIns.setText(sdf.format(calendar.getTime()));
             }
@@ -208,7 +213,7 @@ public class AddAssistantActivity extends AppCompatActivity {
     };
 
 
-    class PostAssistant extends AsyncTask<Void,Void,String> {
+    class PostAssistant extends AsyncTask<Void, Void, String> {
 
         private String name;
         private String surname;
@@ -224,11 +229,11 @@ public class AddAssistantActivity extends AppCompatActivity {
 
             name = txtNombre.getText().toString();
             surname = txtApellidos.getText().toString();
-            email =  txtEmail.getText().toString();
+            email = txtEmail.getText().toString();
             telephone = txtTlf.getText().toString();
-            dni =  txtDni.getText().toString();
-            birthday =  txtBirth.getText().toString();
-            date_inscription =  txtIns.getText().toString();
+            dni = txtDni.getText().toString();
+            birthday = txtBirth.getText().toString();
+            date_inscription = txtIns.getText().toString();
         }
 
         @Override
@@ -244,8 +249,8 @@ public class AddAssistantActivity extends AppCompatActivity {
                 dataToSend.put("surname", surname);
                 dataToSend.put("email", email);
                 dataToSend.put("telephone", telephone);
-                dataToSend.put("dni",dni);
-                dataToSend.put("birthday",birthday);
+                dataToSend.put("dni", dni);
+                dataToSend.put("birthday", birthday);
                 dataToSend.put("date_inscription", date_inscription);
 
                 URL url = new URL(getResources().getString(R.string.ip_node));
@@ -268,10 +273,10 @@ public class AddAssistantActivity extends AppCompatActivity {
                     text = getResources().getString(R.string.post_fail);
                 }
 
-            } catch (Exception e ) {
+            } catch (Exception e) {
                 return e.toString();
             } finally {
-                if(urlConnection != null)
+                if (urlConnection != null)
                     urlConnection.disconnect();
             }
             return text;

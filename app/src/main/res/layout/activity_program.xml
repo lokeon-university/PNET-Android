@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,46 +10,47 @@
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent">
+
         <include
             android:id="@+id/top_toolbar"
             layout="@layout/toolbar_top"></include>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <include
-            layout="@layout/tab_bar"></include>
+
+        <include layout="@layout/tab_bar"></include>
     </LinearLayout>
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/lvMain_layout"
-        >
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="10dp"
-        android:id="@+id/lvMain"
-        android:paddingBottom="?actionBarSize"
-        >
-    </ListView>
+        android:layout_height="wrap_content">
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/lvMain_layout">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <include
-            android:id="@+id/bottom_toolbar"
-            layout="@layout/toolbar_bottom"></include>
-    </LinearLayout>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="10dp"
+                android:id="@+id/lvMain"
+                android:paddingBottom="?actionBarSize"></ListView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/bottom_toolbar"
+                layout="@layout/toolbar_bottom"></include>
+        </LinearLayout>
 
     </RelativeLayout>
 

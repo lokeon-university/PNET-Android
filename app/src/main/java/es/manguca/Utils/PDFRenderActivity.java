@@ -1,20 +1,23 @@
 package es.manguca.Utils;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.pdf.PdfRenderer;
-import android.os.ParcelFileDescriptor;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import es.manguca.AssistantActivity;
 import es.manguca.R;
 
 public class PDFRenderActivity extends AppCompatActivity {
@@ -30,6 +33,18 @@ public class PDFRenderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pdf_layout);
+
+        Toolbar top_toolbar = (Toolbar) findViewById(R.id.top_toolbar);
+        setSupportActionBar(top_toolbar);
+        getSupportActionBar().setTitle(R.string.pdf_view);
+        top_toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+
+        top_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PDFRenderActivity.this, AssistantActivity.class));
+            }
+        });
 
         imgPdf = (ImageView) findViewById(R.id.imgPdf);
         btnNextPage = (Button) findViewById(R.id.btnNextPage);

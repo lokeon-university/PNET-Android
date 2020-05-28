@@ -25,8 +25,7 @@
             android:id="@+id/rvAssistant"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="?actionBarSize"
-            />
+            android:layout_marginBottom="?actionBarSize" />
 
 
         <LinearLayout
@@ -44,8 +43,7 @@
                 app:elevation="0dp"
                 app:fabSize="normal"
                 android:src="@drawable/ic_add_assistant"
-                android:backgroundTint="@color/whiteSmoke"
-                />
+                android:backgroundTint="@color/whiteSmoke" />
         </LinearLayout>
 
         <LinearLayout

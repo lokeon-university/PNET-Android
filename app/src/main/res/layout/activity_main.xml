@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/main"
@@ -11,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <include
             android:id="@+id/top_toolbar"
             layout="@layout/toolbar_top"></include>
@@ -36,10 +36,9 @@
                     android:id="@+id/lvMain_layout_home"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <include
-                        layout="@layout/activity_main_titles"></include>
+                    android:orientation="vertical">
+
+                    <include layout="@layout/activity_main_titles"></include>
 
                     <ListView
                         android:id="@+id/list_artist"
@@ -50,15 +49,13 @@
                         android:layout_marginBottom="40dp"
                         android:dividerHeight="40dp"
                         android:gravity="center_horizontal|center"
-                        android:divider="?android:colorBackground"
-                        ></ListView>
+                        android:divider="?android:colorBackground"></ListView>
 
                     <include layout="@layout/activity_main_banner"></include>
 
                     <include
                         layout="@layout/activity_main_title2"
-                        android:id="@+id/title_2">
-                        </include>
+                        android:id="@+id/title_2"></include>
 
                     <ListView
                         android:id="@+id/list_contest"
@@ -69,12 +66,9 @@
                         android:layout_marginBottom="40dp"
                         android:dividerHeight="40dp"
                         android:divider="?android:colorBackground"
-                        android:gravity="center_horizontal|center"
-                        ></ListView>
+                        android:gravity="center_horizontal|center"></ListView>
 
-                    <include
-                        layout="@layout/activity_main_location_banner"
-                        ></include>
+                    <include layout="@layout/activity_main_location_banner"></include>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

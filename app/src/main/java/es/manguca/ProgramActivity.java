@@ -1,43 +1,26 @@
 package es.manguca;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.pdf.PdfRenderer;
+import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
 
-import android.app.DownloadManager;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.pdf.PdfRenderer;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.ParcelFileDescriptor;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import es.manguca.Adapters.ProgramAdapter;
-import es.manguca.Utils.LetterImageView;
 import es.manguca.Utils.PDFRenderActivity;
-import es.manguca.Utils.PermissionUtils;
 
 public class ProgramActivity extends AppCompatActivity {
     private ListView listView;
     private ParcelFileDescriptor mFileDescriptor;
     private PdfRenderer mPdfRenderer;
-
 
 
     @Override
@@ -46,7 +29,7 @@ public class ProgramActivity extends AppCompatActivity {
         setContentView(R.layout.activity_program);
 
 
-        listView = (ListView)findViewById(R.id.lvMain);
+        listView = (ListView) findViewById(R.id.lvMain);
         setupListView(1);
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
@@ -75,12 +58,11 @@ public class ProgramActivity extends AppCompatActivity {
         });
 
 
-
-        Button btn_home = (Button)findViewById(R.id.button_home);
-        Button btn_schedule = (Button)findViewById(R.id.button_schedule);
-        Button btn_assistant = (Button)findViewById(R.id.button_assistant);
-        Button btn_location = (Button)findViewById(R.id.button_location);
-        Button btn_date = (Button)findViewById(R.id.button_date);
+        Button btn_home = (Button) findViewById(R.id.button_home);
+        Button btn_schedule = (Button) findViewById(R.id.button_schedule);
+        Button btn_assistant = (Button) findViewById(R.id.button_assistant);
+        Button btn_location = (Button) findViewById(R.id.button_location);
+        Button btn_date = (Button) findViewById(R.id.button_date);
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,13 +99,13 @@ public class ProgramActivity extends AppCompatActivity {
             }
         });
 
-        final Button day1 = (Button)findViewById(R.id.day_1);
-        final Button day2 = (Button)findViewById(R.id.day_2);
-        final Button day3 = (Button)findViewById(R.id.day_3);
+        final Button day1 = (Button) findViewById(R.id.day_1);
+        final Button day2 = (Button) findViewById(R.id.day_2);
+        final Button day3 = (Button) findViewById(R.id.day_3);
 
-        day1.setOnClickListener(new View.OnClickListener(){
+        day1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 day1.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.gray, null));
                 day1.setTextColor(Color.WHITE);
                 day2.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.yellow, null));
@@ -135,9 +117,9 @@ public class ProgramActivity extends AppCompatActivity {
             }
         });
 
-        day2.setOnClickListener(new View.OnClickListener(){
+        day2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 day1.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.yellow, null));
                 day1.setTextColor(Color.BLACK);
                 day2.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.gray, null));
@@ -149,9 +131,9 @@ public class ProgramActivity extends AppCompatActivity {
             }
         });
 
-        day3.setOnClickListener(new View.OnClickListener(){
+        day3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 day1.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.yellow, null));
                 day1.setTextColor(Color.BLACK);
                 day2.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.yellow, null));
@@ -165,14 +147,13 @@ public class ProgramActivity extends AppCompatActivity {
 
     }
 
-    private void setupListView(int day){
+    private void setupListView(int day) {
 
         ProgramAdapter adapter = new ProgramAdapter(this, day);
 
         listView.setAdapter(adapter);
 
     }
-
 
 
 }

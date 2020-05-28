@@ -8,7 +8,7 @@
     <string name="add_assistant">Añadir asistentes</string>
     <string name="edit_assitant">Editar asistentes</string>
     <string name="detail_assistant">Detalles asistentes</string>
-    <string name="pdf_view">Ver Horarios PDF</string>
+    <string name="pdf_view">Horarios PDF</string>
     <string name="permission_request_message">Storage permission allows us to save pdf.</string>
     <string name="route_pdf">https://drive.google.com/file/d/1Jv5s8GKG_PYGIl0pngXgAwIRFdXHQ6mi/view?usp=sharing</string>
 

@@ -6,11 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
-import es.manguca.classes.Person;
+
 import es.manguca.R;
 import es.manguca.Utils.LetterImageView;
+import es.manguca.classes.Person;
 
 public class AssistantAdapter extends RecyclerView.Adapter<AssistantAdapter.ViewHolder> {
 
@@ -65,9 +68,9 @@ public class AssistantAdapter extends RecyclerView.Adapter<AssistantAdapter.View
             delete_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(mClickListener != null) {
+                    if (mClickListener != null) {
                         int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
+                        if (position != RecyclerView.NO_POSITION) {
                             mClickListener.onDeleteClick(v, position);
                         }
                     }
@@ -77,9 +80,9 @@ public class AssistantAdapter extends RecyclerView.Adapter<AssistantAdapter.View
             edit_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(mClickListener != null) {
+                    if (mClickListener != null) {
                         int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
+                        if (position != RecyclerView.NO_POSITION) {
                             mClickListener.onEditClick(v, position);
                         }
                     }
@@ -106,7 +109,9 @@ public class AssistantAdapter extends RecyclerView.Adapter<AssistantAdapter.View
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+
         void onDeleteClick(View view, int position);
+
         void onEditClick(View view, int position);
     }
 }

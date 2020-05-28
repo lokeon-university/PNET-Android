@@ -18,7 +18,7 @@ public class ImportantDatesAdapter extends BaseAdapter {
     private String[] sDates;
     private String[] sTitles;
 
-    public ImportantDatesAdapter(Context context, String [] sDates, String [] sTitles) {
+    public ImportantDatesAdapter(Context context, String[] sDates, String[] sTitles) {
         mContext = context;
         layoutInflater = LayoutInflater.from(context);
         this.sDates = sDates;

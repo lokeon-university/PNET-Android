@@ -19,7 +19,7 @@ public class ArtistAdapter extends BaseAdapter {
     private String[] roleArray;
     private ImageView imageView;
 
-    public ArtistAdapter(Context context, String[] title, String[] role){
+    public ArtistAdapter(Context context, String[] title, String[] role) {
         mContext = context;
         titleArray = title;
         roleArray = role;
@@ -44,13 +44,13 @@ public class ArtistAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null){
+        if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.activity_main_single_item, null);
         }
 
-        title = (TextView)convertView.findViewById(R.id.tvTitle);
-        role = (TextView)convertView.findViewById(R.id.tvRole_main);
-        imageView = (ImageView)convertView.findViewById(R.id.ivImage);
+        title = (TextView) convertView.findViewById(R.id.tvTitle);
+        role = (TextView) convertView.findViewById(R.id.tvRole_main);
+        imageView = (ImageView) convertView.findViewById(R.id.ivImage);
         System.out.println("position:" + position);
         System.out.println(titleArray[position]);
 
@@ -58,7 +58,7 @@ public class ArtistAdapter extends BaseAdapter {
         System.out.println("position2:" + position);
         role.setText(roleArray[position]);
         System.out.println(roleArray[position]);
-        switch(position){
+        switch (position) {
             case 0:
                 imageView.setImageResource(R.drawable.artist1);
                 break;

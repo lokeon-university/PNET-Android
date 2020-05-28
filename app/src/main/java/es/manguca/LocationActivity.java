@@ -1,12 +1,14 @@
 package es.manguca;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -46,11 +48,11 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Button btn_home = (Button)findViewById(R.id.button_home);
-        Button btn_schedule = (Button)findViewById(R.id.button_schedule);
-        Button btn_assistant = (Button)findViewById(R.id.button_assistant);
-        Button btn_location = (Button)findViewById(R.id.button_location);
-        Button btn_date = (Button)findViewById(R.id.button_date);
+        Button btn_home = (Button) findViewById(R.id.button_home);
+        Button btn_schedule = (Button) findViewById(R.id.button_schedule);
+        Button btn_assistant = (Button) findViewById(R.id.button_assistant);
+        Button btn_location = (Button) findViewById(R.id.button_location);
+        Button btn_date = (Button) findViewById(R.id.button_date);
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +96,7 @@ public class LocationActivity extends AppCompatActivity implements OnMapReadyCal
 
         LatLng manguca = new LatLng(36.5285651, -6.2110946);
         mMap.addMarker(new MarkerOptions().position(manguca).title(getResources().getString(R.string.marker_map)));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(manguca,18));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(manguca, 18));
     }
 
 }

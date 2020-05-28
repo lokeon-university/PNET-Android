@@ -1,10 +1,5 @@
 package es.manguca;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.app.NotificationCompat;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,17 +9,17 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RemoteViews;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -33,7 +28,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import es.manguca.Adapters.ImportantDatesAdapter;
-import es.manguca.Utils.LetterImageView;
 
 
 public class ImportantDatesActivity extends AppCompatActivity {
@@ -49,7 +43,7 @@ public class ImportantDatesActivity extends AppCompatActivity {
         sDates = getResources().getStringArray(R.array.Date_Dates);
         sTitles = getResources().getStringArray(R.array.Title_Dates);
 
-        listView = (ListView)findViewById(R.id.lvMainDates);
+        listView = (ListView) findViewById(R.id.lvMainDates);
         setupListView();
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbarDates);
@@ -62,11 +56,11 @@ public class ImportantDatesActivity extends AppCompatActivity {
         setSupportActionBar(top_toolbar);
         getSupportActionBar().setTitle(R.string.importantdates);
 
-        Button btn_home = (Button)findViewById(R.id.button_home);
-        Button btn_schedule = (Button)findViewById(R.id.button_schedule);
-        Button btn_assistant = (Button)findViewById(R.id.button_assistant);
-        Button btn_location = (Button)findViewById(R.id.button_location);
-        Button btn_date = (Button)findViewById(R.id.button_date);
+        Button btn_home = (Button) findViewById(R.id.button_home);
+        Button btn_schedule = (Button) findViewById(R.id.button_schedule);
+        Button btn_assistant = (Button) findViewById(R.id.button_assistant);
+        Button btn_location = (Button) findViewById(R.id.button_location);
+        Button btn_date = (Button) findViewById(R.id.button_date);
 
 
         btn_home.setOnClickListener(new View.OnClickListener() {
@@ -105,12 +99,9 @@ public class ImportantDatesActivity extends AppCompatActivity {
         });
 
 
-
-
-
     }
 
-    private void setupListView(){
+    private void setupListView() {
 
         ImportantDatesAdapter adapter = new ImportantDatesAdapter(this, sDates, sTitles);
 
@@ -119,7 +110,7 @@ public class ImportantDatesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Date date= null;
+                Date date = null;
                 SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
                 try {
                     date = myFormat.parse(sDates[position]);
@@ -131,18 +122,18 @@ public class ImportantDatesActivity extends AppCompatActivity {
                 Date today = new Date();
                 long difference = 0;
 
-                if (date.before(today)){
-                    difference = ((today.getTime() -date.getTime())/(1000*60*60*24));
+                if (date.before(today)) {
+                    difference = ((today.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
                     Toast.makeText(ImportantDatesActivity.this, "Han pasado " + difference + " días desde este evento", Toast.LENGTH_SHORT).show();
 
                 }
                 /*else if (date ==today){
 
                 }*/
-                else{
-                    difference = ((date.getTime() -today.getTime())/(1000*60*60*24));
+                else {
+                    difference = ((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
-                    showNotification(getResources().getString(R.string.title_notif),getResources().getString(R.string.message_notif));
+                    showNotification(getResources().getString(R.string.title_notif), getResources().getString(R.string.message_notif));
                     LinearLayout linearLayout = (LinearLayout) findViewById(R.id.important_dates);
                     Snackbar snackbar = Snackbar
                             .make(linearLayout, "Quedan " + difference + " días para este evento", Snackbar.LENGTH_LONG);
@@ -164,24 +155,23 @@ public class ImportantDatesActivity extends AppCompatActivity {
         return remoteViews;
     }
 
-    public void showNotification(String title,String message) {
+    public void showNotification(String title, String message) {
         Intent intent = new Intent(this, LocationActivity.class);
         String channel_id = getResources().getString(R.string.channel_id);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),channel_id)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), channel_id)
                 .setSmallIcon(R.drawable.logo_gato)
                 .setSound(uri)
                 .setAutoCancel(true)
-                .setVibrate(new long[]{1000,1000,1000,1000,1000})
+                .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000})
                 .setOnlyAlertOnce(true)
                 .setContentIntent(pendingIntent);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            builder = builder.setContent(getCustomDesign(title,message));
-        }
-        else {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            builder = builder.setContent(getCustomDesign(title, message));
+        } else {
             builder = builder.setContentTitle(title)
                     .setContentText(message)
                     .setSmallIcon(R.drawable.logo_gato);
@@ -189,13 +179,13 @@ public class ImportantDatesActivity extends AppCompatActivity {
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel notificationChannel = new NotificationChannel(channel_id,getResources().getString(R.string.channel_name),NotificationManager.IMPORTANCE_HIGH);
-            notificationChannel.setSound(uri,null);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(channel_id, getResources().getString(R.string.channel_name), NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel.setSound(uri, null);
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
-        notificationManager.notify(0,builder.build());
+        notificationManager.notify(0, builder.build());
     }
 
 

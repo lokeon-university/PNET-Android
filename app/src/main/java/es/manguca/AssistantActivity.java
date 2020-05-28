@@ -1,37 +1,38 @@
 package es.manguca;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
-import es.manguca.assistant.AddAssistantActivity;
+
 import es.manguca.Adapters.AssistantAdapter;
+import es.manguca.assistant.AddAssistantActivity;
 import es.manguca.assistant.AssistantDetailActivity;
 import es.manguca.assistant.EditAssistantActivity;
 import es.manguca.classes.Person;
 
-public class AssistantActivity extends AppCompatActivity implements AssistantAdapter.ItemClickListener{
+public class AssistantActivity extends AppCompatActivity implements AssistantAdapter.ItemClickListener {
 
     private AssistantAdapter adapter;
     private RecyclerView recyclerView;
@@ -57,11 +58,11 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
         setSupportActionBar(top_toolbar);
         getSupportActionBar().setTitle(R.string.assistant);
 
-        Button btn_home = (Button)findViewById(R.id.button_home);
-        Button btn_schedule = (Button)findViewById(R.id.button_schedule);
-        Button btn_assistant = (Button)findViewById(R.id.button_assistant);
-        Button btn_location = (Button)findViewById(R.id.button_location);
-        Button btn_date = (Button)findViewById(R.id.button_date);
+        Button btn_home = (Button) findViewById(R.id.button_home);
+        Button btn_schedule = (Button) findViewById(R.id.button_schedule);
+        Button btn_assistant = (Button) findViewById(R.id.button_assistant);
+        Button btn_location = (Button) findViewById(R.id.button_location);
+        Button btn_date = (Button) findViewById(R.id.button_date);
         FloatingActionButton btn_add_assistant = (FloatingActionButton) findViewById(R.id.button_add_assistant);
 
         btn_home.setOnClickListener(new View.OnClickListener() {
@@ -119,15 +120,13 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
     }
 
     @Override
-    public void onDeleteClick(View v, int position)
-    {
+    public void onDeleteClick(View v, int position) {
         AlertDialog diaBox = deleteConfirmation(position);
         diaBox.show();
     }
 
     @Override
-    public void onEditClick(View v, int position)
-    {
+    public void onEditClick(View v, int position) {
         Intent intent = new Intent(this, EditAssistantActivity.class);
         bundle.putString("id", adapter.getItem(position).getId());
         bundle.putString("name", adapter.getItem(position).getName());
@@ -136,12 +135,12 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
         bundle.putString("phone", adapter.getItem(position).getPhone());
         bundle.putString("DNI", adapter.getItem(position).getDni());
         bundle.putString("birth", adapter.getItem(position).getBirth());
-        bundle.putString("insDate",adapter.getItem(position).getInsDate());
+        bundle.putString("insDate", adapter.getItem(position).getInsDate());
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
-    class GetAllAssistants extends AsyncTask<Void,Void,String> {
+    class GetAllAssistants extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... strings) {
@@ -160,10 +159,10 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
                 InputStream inputStream = urlConnection.getInputStream();
                 text = new Scanner(inputStream).useDelimiter("\\A").next();
 
-            } catch (Exception e ) {
+            } catch (Exception e) {
                 return e.toString();
             } finally {
-                if(urlConnection != null)
+                if (urlConnection != null)
                     urlConnection.disconnect();
             }
             return text;
@@ -173,11 +172,11 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
         protected void onPostExecute(String results) {
             super.onPostExecute(results);
 
-            if(results!= null) {
+            if (results != null) {
                 JSONArray jsonArray = null;
                 try {
                     jsonArray = new JSONArray(results);
-                    for(int i = 0; i < jsonArray.length(); i++) {
+                    for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonobject = jsonArray.getJSONObject(i);
                         person.add(new Person(jsonobject.getString("_id"),
                                 jsonobject.getString("name"),
@@ -196,13 +195,13 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
                     recyclerView.setAdapter(adapter);
 
                 } catch (JSONException e) {
-                    e.printStackTrace();}
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    private AlertDialog deleteConfirmation(final int position)
-    {
+    private AlertDialog deleteConfirmation(final int position) {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
                 .setTitle(R.string.eliminar_confir)
                 .setMessage(R.string.mensaje_confir)
@@ -224,7 +223,7 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
         return myQuittingDialogBox;
     }
 
-    class DeleteAssistant extends AsyncTask<String,Void,String> {
+    class DeleteAssistant extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {

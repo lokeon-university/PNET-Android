@@ -19,7 +19,7 @@ public class ActivitiesAdapter extends BaseAdapter {
     private String[] roleArray;
     private ImageView imageView;
 
-    public ActivitiesAdapter(Context context, String[] title, String[] role){
+    public ActivitiesAdapter(Context context, String[] title, String[] role) {
         mContext = context;
         titleArray = title;
         roleArray = role;
@@ -45,18 +45,18 @@ public class ActivitiesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null){
+        if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.activity_main_single_item, null);
         }
 
-        title = (TextView)convertView.findViewById(R.id.tvTitle);
-        role = (TextView)convertView.findViewById(R.id.tvRole_main);
-        imageView = (ImageView)convertView.findViewById(R.id.ivImage);
+        title = (TextView) convertView.findViewById(R.id.tvTitle);
+        role = (TextView) convertView.findViewById(R.id.tvRole_main);
+        imageView = (ImageView) convertView.findViewById(R.id.ivImage);
 
         title.setText(titleArray[position]);
         role.setText(roleArray[position]);
 
-        switch(position){
+        switch (position) {
             case 0:
                 imageView.setImageResource(R.drawable.act1);
                 break;
