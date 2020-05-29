@@ -13,7 +13,7 @@
 
         <include
             android:id="@+id/top_toolbar"
-            layout="@layout/toolbar_top"></include>
+            layout="@layout/toolbar_top" />
 
     </LinearLayout>
 
@@ -27,10 +27,10 @@
             android:orientation="vertical"
             android:id="@+id/lvMain_layout">
 
-            <ImageView
+            <com.ortiz.touchview.TouchImageView
                 android:id="@+id/imgPdf"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter" />
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="&lt;" />
+                    android:text="@string/back" />
 
                 <Button
                     android:id="@+id/btnNextPage"
@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="&gt;" />
+                    android:text="@string/next" />
             </LinearLayout>
         </LinearLayout>
 

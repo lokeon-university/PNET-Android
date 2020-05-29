@@ -11,7 +11,7 @@
 
         <include
             android:id="@+id/top_toolbar"
-            layout="@layout/toolbar_top"></include>
+            layout="@layout/toolbar_top" />
     </LinearLayout>
 
     <RelativeLayout
@@ -44,11 +44,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/NameAssistant"
-                    android:text="Name"
+                    android:text="@string/nombre"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_margin="8dp"
-                    android:layout_toRightOf="@+id/iconAssistants"
                     android:gravity="center_vertical"
 
                     />
@@ -63,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/LastNameAssistant"
-                    android:text="Last Name"
+                    android:text="@string/apellido"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_margin="8dp" />
@@ -72,7 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/DniAssistant"
-                    android:text="Dni"
+                    android:text="@string/dni"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_margin="8dp" />
@@ -81,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/EmailAssistant"
-                    android:text="Email"
+                    android:text="@string/email"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_margin="8dp" />
@@ -90,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/PhoneAssistant"
-                    android:text="Phone"
+                    android:text="@string/telefono"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_margin="8dp" />
@@ -99,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/BirthAssistant"
-                    android:text="Birthday"
+                    android:text="@string/fechaNac"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_margin="8dp" />
@@ -108,7 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/InsDateAssistant"
-                    android:text="InscriptionDate"
+                    android:text="@string/fechaIns"
                     android:textStyle="bold"
                     android:textSize="24sp"
                     android:layout_margin="8dp" />
@@ -121,7 +120,7 @@
 
             <include
                 android:id="@+id/bottom_toolbar"
-                layout="@layout/toolbar_bottom"></include>
+                layout="@layout/toolbar_bottom" />
         </LinearLayout>
 
     </RelativeLayout>

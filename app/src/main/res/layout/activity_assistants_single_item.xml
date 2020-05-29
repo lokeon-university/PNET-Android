@@ -11,7 +11,7 @@
         android:layout_margin="8dp"
         android:orientation="horizontal"
         android:layout_centerInParent="true"
-        android:layout_alignParentLeft="true">
+        android:layout_alignParentStart="true">
 
         <es.manguca.Utils.LetterImageView
             android:layout_width="70dp"
@@ -22,11 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/NameAssistant"
-            android:text="Name"
+            android:text="@string/nombre"
             android:textStyle="bold"
             android:textSize="24sp"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/iconAssistants"
+            android:layout_marginStart="8dp"
             android:gravity="center_vertical" />
     </LinearLayout>
 
@@ -34,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerInParent="true">
 
         <Button

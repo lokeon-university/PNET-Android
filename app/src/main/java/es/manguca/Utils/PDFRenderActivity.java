@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.ortiz.touchview.TouchImageView;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -46,7 +48,7 @@ public class PDFRenderActivity extends AppCompatActivity {
             }
         });
 
-        imgPdf = (ImageView) findViewById(R.id.imgPdf);
+        imgPdf = (TouchImageView) findViewById(R.id.imgPdf);
         btnNextPage = (Button) findViewById(R.id.btnNextPage);
         btnPrevPage = (Button) findViewById(R.id.btnPrevPage);
 

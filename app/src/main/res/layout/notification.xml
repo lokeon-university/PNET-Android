@@ -25,7 +25,7 @@
 
         <TextView
             android:id="@+id/title"
-            android:text="Title"
+            android:text="@string/title"
             android:textColor="#000"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/message"
-            android:text="Messae"
+            android:text="@string/message"
             android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

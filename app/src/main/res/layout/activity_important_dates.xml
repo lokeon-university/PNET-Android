@@ -13,7 +13,7 @@
 
         <include
             android:id="@+id/top_toolbar"
-            layout="@layout/toolbar_top"></include>
+            layout="@layout/toolbar_top" />
 
     </LinearLayout>
 
@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:dividerHeight="10dp"
                 android:id="@+id/lvMainDates"
-                android:paddingBottom="?actionBarSize"></ListView>
+                android:paddingBottom="?actionBarSize" />
 
         </LinearLayout>
 
@@ -43,7 +43,7 @@
 
             <include
                 android:id="@+id/bottom_toolbarDates"
-                layout="@layout/toolbar_bottom"></include>
+                layout="@layout/toolbar_bottom" />
         </LinearLayout>
 
     </RelativeLayout>

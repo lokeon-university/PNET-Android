@@ -13,7 +13,7 @@
 
         <include
             android:id="@+id/top_toolbar"
-            layout="@layout/toolbar_top"></include>
+            layout="@layout/toolbar_top" />
     </LinearLayout>
 
     <RelativeLayout
@@ -29,7 +29,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
 
                 <LinearLayout
@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <include layout="@layout/activity_main_titles"></include>
+                    <include layout="@layout/activity_main_titles" />
 
                     <ListView
                         android:id="@+id/list_artist"
@@ -49,13 +49,13 @@
                         android:layout_marginBottom="40dp"
                         android:dividerHeight="40dp"
                         android:gravity="center_horizontal|center"
-                        android:divider="?android:colorBackground"></ListView>
+                        android:divider="?android:colorBackground" />
 
-                    <include layout="@layout/activity_main_banner"></include>
+                    <include layout="@layout/activity_main_banner" />
 
                     <include
                         layout="@layout/activity_main_title2"
-                        android:id="@+id/title_2"></include>
+                        android:id="@+id/title_2" />
 
                     <ListView
                         android:id="@+id/list_contest"
@@ -66,9 +66,9 @@
                         android:layout_marginBottom="40dp"
                         android:dividerHeight="40dp"
                         android:divider="?android:colorBackground"
-                        android:gravity="center_horizontal|center"></ListView>
+                        android:gravity="center_horizontal|center" />
 
-                    <include layout="@layout/activity_main_location_banner"></include>
+                    <include layout="@layout/activity_main_location_banner" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
@@ -79,7 +79,7 @@
 
             <include
                 android:id="@+id/bottom_toolbar"
-                layout="@layout/toolbar_bottom"></include>
+                layout="@layout/toolbar_bottom" />
         </LinearLayout>
 
     </RelativeLayout>

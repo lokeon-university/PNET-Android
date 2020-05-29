@@ -19,26 +19,26 @@
 
         <TextView
             android:paddingTop="5dp"
-            android:paddingRight="5dp"
+            android:paddingEnd="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvRole_main"
-            android:text="Role"
+            android:text="@string/role"
             android:layout_below="@id/ivImage"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textColor="@color/red"
-            android:paddingLeft="10dp" />
+            android:paddingStart="10dp" />
 
         <TextView
             android:paddingBottom="5dp"
-            android:paddingRight="5dp"
+            android:paddingEnd="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvTitle"
-            android:text="Program"
+            android:text="@string/program"
             android:textStyle="bold"
-            android:textSize="24dp"
-            android:paddingLeft="10dp"
+            android:textSize="24sp"
+            android:paddingStart="10dp"
             android:layout_below="@+id/tvRole_main"
             android:textColor="@color/red"
 

@@ -11,15 +11,14 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/day_1"
-            android:text="Viernes"
+            android:text="@string/viernes"
             android:background="@color/gray"
             android:textColor="@color/whiteSmoke"
-            android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
             android:stateListAnimator="@null" />
 
         <Button
@@ -27,8 +26,8 @@
             android:layout_height="match_parent"
             android:id="@+id/day_2"
             android:background="@color/yellow"
-            android:text="Sábado"
-            android:layout_marginRight="30dp"
+            android:text="@string/sabado"
+            android:layout_marginEnd="30dp"
             android:stateListAnimator="@null" />
 
         <Button
@@ -36,8 +35,8 @@
             android:layout_height="match_parent"
             android:id="@+id/day_3"
             android:background="@color/yellow"
-            android:text="Domingo"
-            android:layout_marginRight="30dp"
+            android:text="@string/domingo"
+            android:layout_marginEnd="30dp"
             android:stateListAnimator="@null" />
 
     </LinearLayout>

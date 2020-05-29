@@ -10,14 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:orientation="horizontal"
             android:layout_centerInParent="true"
-            android:layout_alignParentLeft="true">
+            android:layout_alignParentStart="true">
 
             <es.manguca.Utils.LetterImageView
                 android:layout_width="70dp"
@@ -41,20 +40,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tvMainDates"
-                        android:text="Program"
+                        android:text="@string/event"
                         android:textStyle="bold"
                         android:textSize="24sp"
-                        android:layout_toRightOf="@+id/ivLetterDates"
                         android:gravity="center_vertical" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tvDate"
-                        android:text="Date"
-                        android:layout_below="@+id/tvMainDates"
-                        android:layout_toRightOf="@+id/ivLetterDates"
-                        android:textSize="16dp" />
+                        android:text="@string/date"
+                        android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

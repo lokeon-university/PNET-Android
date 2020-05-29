@@ -16,10 +16,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="Estamos en:"
-            android:textSize="24dp"
+            android:text="@string/estamos_en"
+            android:textSize="24sp"
             android:background="@color/yellow"
-            android:gravity="left|center"
+            android:gravity="start|center"
             android:layout_alignParentStart="true"
 
             />
@@ -27,12 +27,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="Complejo Deportivo UCA\n
-Av Argentina, 10\n
-11519 Puerto Real, Cádiz"
-            android:textSize="18dp"
+            android:text="@string/cadiz"
+            android:textSize="18sp"
             android:background="@color/yellow"
-            android:gravity="right|center"
+            android:gravity="end|center"
             android:layout_alignParentEnd="true"
 
             />

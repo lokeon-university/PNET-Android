@@ -13,7 +13,7 @@
 
         <include
             android:id="@+id/top_toolbar"
-            layout="@layout/toolbar_top"></include>
+            layout="@layout/toolbar_top" />
     </LinearLayout>
 
     <RelativeLayout
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/email"
-                android:inputType="text" />
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/TxtTlf"
@@ -105,7 +105,7 @@
 
             <include
                 android:id="@+id/bottom_toolbar"
-                layout="@layout/toolbar_bottom"></include>
+                layout="@layout/toolbar_bottom" />
         </LinearLayout>
 
     </RelativeLayout>

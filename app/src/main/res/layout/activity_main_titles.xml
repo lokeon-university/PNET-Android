@@ -18,10 +18,10 @@
             android:layout_height="100dp"
             android:id="@+id/ivBanner_Titles"
             android:text="@string/title1"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textColor="@color/red"
             android:gravity="center_vertical|center"
-            android:paddingLeft="10dp"
+            android:padding="10dp"
             android:textStyle="bold" />
 
     </RelativeLayout>

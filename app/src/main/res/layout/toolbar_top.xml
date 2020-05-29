@@ -5,4 +5,4 @@
     android:layout_height="?actionBarSize"
     android:layout_gravity="start|top"
     android:background="@color/gray"
-    app:titleTextColor="@color/whiteSmoke"></androidx.appcompat.widget.Toolbar>
+    app:titleTextColor="@color/whiteSmoke" />

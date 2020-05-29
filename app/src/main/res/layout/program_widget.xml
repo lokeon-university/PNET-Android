@@ -14,14 +14,12 @@
             android:layout_width="@android:dimen/app_icon_size"
             android:layout_height="@android:dimen/app_icon_size"
             android:layout_gravity="center"
-            android:background="@drawable/logo_gato"></ImageView>
+            android:background="@drawable/logo_gato" />
 
         <TextView
             android:id="@+id/appwidget_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:layout_margin="8dp"
             android:contentDescription="@string/appwidget_text"
             android:text="@string/appwidget_text"

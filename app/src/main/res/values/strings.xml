@@ -12,7 +12,7 @@
     <string name="permission_request_message">Storage permission allows us to save pdf.</string>
     <string name="route_pdf">https://drive.google.com/file/d/1Jv5s8GKG_PYGIl0pngXgAwIRFdXHQ6mi/view?usp=sharing</string>
 
-    <string name="appwidget_text">Programa Manguca</string>
+    <string name="appwidget_text">Horario Manguca</string>
     <string name="configure">Configuración</string>
     <string name="add_widget">Añadir Widget</string>
     <string name="title_map">Ubicación del mapa</string>
@@ -51,6 +51,22 @@
     <string name="delete_fail">"Delete failed!</string>
     <string name="channel_id">manuguca_location_channel</string>
     <string name="channel_name">manguca_location</string>
+    <string name="back">&lt;</string>
+    <string name="next">&gt;</string>
+    <string name="event">Evento</string>
+    <string name="date">Fecha</string>
+    <string name="entrada">¡Consigue ya tu entrada!</string>
+    <string name="estamos_en">Estamos en:</string>
+    <string name="cadiz">Complejo Deportivo UCA\n
+                         Av Argentina, 10\n
+                          11519 Puerto Real, Cádiz</string>
+    <string name="role">Role</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="message">Message</string>
+    <string name="viernes">Viernes</string>
+    <string name="sabado">Sábado</string>
+    <string name="domingo">Domingo</string>
 
     <string-array name="title_main">
         <item>Voces de Overwatch</item>

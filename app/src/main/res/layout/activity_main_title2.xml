@@ -18,7 +18,7 @@
             android:layout_height="100dp"
             android:id="@+id/ivBanner_Titles"
             android:text="@string/title2"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textColor="@color/red"
             android:gravity="center_vertical|center"
             android:paddingLeft="10dp"
