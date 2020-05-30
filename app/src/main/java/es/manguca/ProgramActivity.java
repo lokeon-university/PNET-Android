@@ -2,9 +2,7 @@ package es.manguca;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.pdf.PdfRenderer;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -19,9 +17,7 @@ import es.manguca.Utils.PDFRenderActivity;
 
 public class ProgramActivity extends AppCompatActivity {
     private ListView listView;
-    private ParcelFileDescriptor mFileDescriptor;
-    private PdfRenderer mPdfRenderer;
-
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
