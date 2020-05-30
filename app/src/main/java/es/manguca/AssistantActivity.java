@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,9 +45,7 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assistant);
-        //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
-        //DividerItemDecoration.VERTICAL);
-        //recyclerView.addItemDecoration(dividerItemDecoration);
+
 
         Toolbar bottom_toolbar = (Toolbar) findViewById(R.id.bottom_toolbar);
         setSupportActionBar(bottom_toolbar);
@@ -189,6 +188,8 @@ public class AssistantActivity extends AppCompatActivity implements AssistantAda
                     }
 
                     recyclerView = findViewById(R.id.rvAssistant);
+                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(AssistantActivity.this, DividerItemDecoration.VERTICAL);
+                    recyclerView.addItemDecoration(dividerItemDecoration);
                     recyclerView.setLayoutManager(new LinearLayoutManager(AssistantActivity.this));
                     adapter = new AssistantAdapter(AssistantActivity.this, person);
                     adapter.setClickListener(AssistantActivity.this);
