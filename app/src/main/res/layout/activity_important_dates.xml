@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/important_dates"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/important_dates"
-    tools:context=".ProgramActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ProgramActivity">
 
     <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <include
             android:id="@+id/top_toolbar"
@@ -23,16 +23,16 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/lvMainDates_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/lvMainDates_layout">
+            android:orientation="vertical">
 
             <ListView
+                android:id="@+id/lvMainDates"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:dividerHeight="10dp"
-                android:id="@+id/lvMainDates"
                 android:paddingBottom="?actionBarSize" />
 
         </LinearLayout>

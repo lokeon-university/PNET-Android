@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/assistant_detail"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/assistant_detail">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,32 +23,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_marginBottom="20dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <LinearLayout
+                android:id="@+id/AssistantsTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/AssistantsTop"
 
                 >
 
                 <es.manguca.Utils.LetterImageView
+                    android:id="@+id/iconAssistants"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:id="@+id/iconAssistants"
                     android:layout_margin="8dp" />
 
                 <TextView
+                    android:id="@+id/NameAssistant"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/NameAssistant"
-                    android:text="@string/nombre"
-                    android:textStyle="bold"
-                    android:textSize="24sp"
                     android:layout_margin="8dp"
                     android:gravity="center_vertical"
+                    android:text="@string/nombre"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
 
                     />
             </LinearLayout>
@@ -59,58 +59,58 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/LastNameAssistant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:text="@string/apellido"
-                    android:textStyle="bold"
                     android:textSize="24sp"
-                    android:layout_margin="8dp" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/DniAssistant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:text="@string/dni"
-                    android:textStyle="bold"
                     android:textSize="24sp"
-                    android:layout_margin="8dp" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/EmailAssistant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:text="@string/email"
-                    android:textStyle="bold"
                     android:textSize="24sp"
-                    android:layout_margin="8dp" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/PhoneAssistant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:text="@string/telefono"
-                    android:textStyle="bold"
                     android:textSize="24sp"
-                    android:layout_margin="8dp" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/BirthAssistant"
-                    android:text="@string/fechaNac"
-                    android:textStyle="bold"
-                    android:textSize="24sp"
-                    android:layout_margin="8dp" />
-
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/InsDateAssistant"
-                    android:text="@string/fechaIns"
-                    android:textStyle="bold"
+                    android:layout_margin="8dp"
+                    android:text="@string/fechaNac"
                     android:textSize="24sp"
-                    android:layout_margin="8dp" />
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/InsDateAssistant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="@string/fechaIns"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 

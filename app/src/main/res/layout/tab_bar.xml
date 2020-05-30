@@ -5,39 +5,40 @@
     android:layout_gravity="start|top"
     android:background="@color/yellow">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_marginEnd="20dp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             android:id="@+id/day_1"
-            android:text="@string/viernes"
-            android:background="@color/gray"
-            android:textColor="@color/whiteSmoke"
-            android:layout_marginEnd="30dp"
-            android:stateListAnimator="@null" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/day_2"
-            android:background="@color/yellow"
-            android:text="@string/sabado"
-            android:layout_marginEnd="30dp"
-            android:stateListAnimator="@null" />
+            android:layout_alignParentStart="true"
+            android:background="@color/gray"
+            android:stateListAnimator="@null"
+            android:text="@string/viernes"
+            android:textColor="@color/whiteSmoke" />
 
         <Button
+            android:id="@+id/day_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/yellow"
+            android:stateListAnimator="@null"
+            android:text="@string/sabado" />
+
+        <Button
+            android:id="@+id/day_3"
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:id="@+id/day_3"
+            android:layout_alignParentEnd="true"
             android:background="@color/yellow"
-            android:text="@string/domingo"
-            android:layout_marginEnd="30dp"
-            android:stateListAnimator="@null" />
+            android:stateListAnimator="@null"
+            android:text="@string/domingo" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </androidx.appcompat.widget.Toolbar>

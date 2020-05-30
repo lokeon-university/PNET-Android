@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="200dp"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:background="@color/colorAccent"
-    android:elevation="4dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:elevation="4dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -11,36 +11,36 @@
 
 
         <es.manguca.Utils.LetterImageView
+            android:id="@+id/ivImage"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/ivImage"
             android:scaleType="centerCrop" />
 
         <TextView
+            android:id="@+id/tvRole_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivImage"
+            android:paddingStart="10dp"
             android:paddingTop="5dp"
             android:paddingEnd="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvRole_main"
             android:text="@string/role"
-            android:layout_below="@id/ivImage"
-            android:textSize="12sp"
             android:textColor="@color/red"
-            android:paddingStart="10dp" />
+            android:textSize="12sp" />
 
         <TextView
-            android:paddingBottom="5dp"
-            android:paddingEnd="5dp"
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvTitle"
-            android:text="@string/program"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:paddingStart="10dp"
             android:layout_below="@+id/tvRole_main"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/program"
             android:textColor="@color/red"
+            android:textSize="24sp"
+            android:textStyle="bold"
 
             />
 

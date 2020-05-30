@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/banner"
-    android:elevation="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/yellow"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:elevation="4dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -12,13 +12,13 @@
         android:background="@color/yellow">
 
         <TextView
+            android:id="@+id/ivBanner"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:id="@+id/ivBanner"
-            android:text="@string/entrada"
-            android:textSize="24sp"
             android:background="@color/yellow"
             android:gravity="center_vertical|center"
+            android:text="@string/entrada"
+            android:textSize="24sp"
 
             />
 

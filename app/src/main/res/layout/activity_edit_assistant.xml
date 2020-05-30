@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/assistant_edit"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/assistant_edit"
-    tools:context=".assistant.EditAssistantActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".assistant.EditAssistantActivity">
 
     <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <include
             android:id="@+id/top_toolbar"
@@ -102,9 +102,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:inputType="date"
-                android:focusable="false"
                 android:clickable="true"
+                android:focusable="false"
+                android:inputType="date"
                 android:maxLines="1" />
 
             <TextView
@@ -116,18 +116,18 @@
             <EditText
                 android:id="@+id/fechaIns"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"
-                android:inputType="date"
-                android:focusable="false"
+                android:layout_marginBottom="10dp"
                 android:clickable="true"
+                android:focusable="false"
+                android:inputType="date"
                 android:maxLines="1" />
 
             <Button
                 android:id="@+id/BtnAceptar"
-                android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:backgroundTint="@color/whiteSmoke"
                 android:enabled="false"
                 android:text="@string/aceptar" />

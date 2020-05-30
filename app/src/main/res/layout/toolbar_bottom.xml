@@ -2,53 +2,72 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
-    android:layout_gravity="bottom|end"
+    android:layout_gravity="bottom|center"
     android:background="@color/gray">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_marginEnd="20dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_home"
             android:layout_width="@android:dimen/app_icon_size"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
             android:background="@drawable/ic_home"
-            android:layout_marginEnd="30dp"
             android:backgroundTint="@color/whiteSmoke" />
 
-        <Button
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_schedule"
-            android:id="@+id/button_schedule"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="@color/whiteSmoke" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@id/button_assistant"
+            android:layout_toEndOf="@id/button_home">
+
+            <Button
+                android:id="@+id/button_schedule"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ic_schedule"
+                android:backgroundTint="@color/whiteSmoke" />
+        </RelativeLayout>
+
 
         <Button
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_assistants"
             android:id="@+id/button_assistant"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="@color/whiteSmoke" />
+            android:layout_width="51dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_assistants"
+            android:backgroundTint="@color/whiteSmoke"
+            android:gravity="center" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@id/button_date"
+            android:layout_toEndOf="@id/button_assistant">
+
+            <Button
+                android:id="@+id/button_location"
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_location"
+                android:backgroundTint="@color/whiteSmoke" />
+        </RelativeLayout>
 
         <Button
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_location"
-            android:id="@+id/button_location"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="@color/whiteSmoke" />
-
-        <Button
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_date"
             android:id="@+id/button_date"
+            android:layout_width="51dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_date"
             android:backgroundTint="@color/whiteSmoke" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </androidx.appcompat.widget.Toolbar>
