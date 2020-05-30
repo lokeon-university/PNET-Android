@@ -133,7 +133,7 @@ public class ImportantDatesActivity extends AppCompatActivity {
                 else {
                     difference = ((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
-                    showNotification(getResources().getString(R.string.title_notif), getResources().getString(R.string.message_notif));
+                    showNotification(getResources().getString(R.string.title_notif), "Quedan " + difference + " días para este evento");
                     LinearLayout linearLayout = (LinearLayout) findViewById(R.id.important_dates);
                     Snackbar snackbar = Snackbar
                             .make(linearLayout, "Quedan " + difference + " días para este evento", Snackbar.LENGTH_LONG);
