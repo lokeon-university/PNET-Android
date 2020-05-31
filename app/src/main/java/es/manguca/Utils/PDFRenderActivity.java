@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import es.manguca.AssistantActivity;
+import es.manguca.ProgramActivity;
 import es.manguca.R;
 
 public class PDFRenderActivity extends AppCompatActivity {
@@ -44,7 +45,7 @@ public class PDFRenderActivity extends AppCompatActivity {
         top_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PDFRenderActivity.this, AssistantActivity.class));
+                startActivity(new Intent(PDFRenderActivity.this, ProgramActivity.class));
             }
         });
 
